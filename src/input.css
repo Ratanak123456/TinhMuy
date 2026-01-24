@@ -1,4 +1,80 @@
+/* Import Tailwind */
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* Import Outfit font from Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+
+/* Import Flowbite theme */
 @import "flowbite/src/themes/default";
+
+/* Add DaisyUI plugin */
 @plugin "daisyui";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Your color palette as Tailwind CSS variables */
+  --color-primary-50: #f8f9fa;
+  --color-primary-100: #e9ecef;
+  --color-primary-200: #dee2e6;
+  --color-primary-300: #ced4da;
+  --color-primary-400: #adb5bd;
+  --color-primary-500: #6c757d;
+  --color-primary-600: #5d737e;
+  --color-primary-700: #495057;
+  --color-primary-800: #343a40;
+  --color-primary-900: #212529;
+
+  --color-primary: #5d737e;
+
+  --color-secondary-50: #f9fbfb;
+  --color-secondary-100: #f0f5f5;
+  --color-secondary-200: #e1ebea;
+  --color-secondary-300: #cbdad9;
+  --color-secondary-400: #a6c1bf;
+  --color-secondary-500: #8aa8a6;
+  --color-secondary-600: #708f8d;
+  --color-secondary-700: #5a7270;
+  --color-secondary-800: #465a59;
+  --color-secondary-900: #344242;
+
+  --color-secondary-light: #d1e0df;
+  --color-secondary-dark: #7a9997;
+
+  --color-accent-50: #fefce8;
+  --color-accent-100: #fef9c3;
+  --color-accent-200: #fef08a;
+  --color-accent-300: #fde047;
+  --color-accent-400: #facc15;
+  --color-accent-500: #eab308;
+  --color-accent-600: #ca8a04;
+  --color-accent-700: #a16207;
+  --color-accent-800: #854d0e;
+  --color-accent-900: #713f12;
+
+  --color-accent-brand: #d4a76a;
+
+  --color-page-bg: #faf8f5;
+  --color-dark-page-bg: #121210;
+  --color-dark-nav-bg: #1c1c1a;
+
+  /* Set Outfit as default font family */
+  --font-sans: "Outfit", system-ui, -apple-system, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply font-serif transition-colors duration-300 bg-page-bg text-[#44403c];
+  }
+  .dark body {
+    @apply bg-dark-page-bg text-[#EAEAE6];
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  button,
+  nav {
+    @apply font-sans;
+  }
+}
