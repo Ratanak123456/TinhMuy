@@ -1,10 +1,4 @@
-/**
- * DARK MODE LOGIC
- * Targeted to work with Tailwind CSS v4 
- */
 
-// We use a function to get the element inside the toggle to ensure 
-// it exists when the user clicks.
 function toggleDarkMode() {
   const htmlElement = document.querySelector('#main-html');
   
@@ -17,7 +11,6 @@ function toggleDarkMode() {
   }
 }
 
-// Initial Check: This runs immediately to prevent "flashing"
 (function initTheme() {
   const savedTheme = localStorage.getItem('theme');
   const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
