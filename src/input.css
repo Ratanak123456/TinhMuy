@@ -6,6 +6,9 @@
 
 /* Import Flowbite theme */
 @import "flowbite/src/themes/default";
+@source "../node_modules/flowbite";
+@plugin "flowbite/plugin";
+
 
 /* Add DaisyUI plugin */
 @plugin "daisyui";
