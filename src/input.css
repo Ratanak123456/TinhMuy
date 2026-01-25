@@ -7,8 +7,6 @@
 /* Import Flowbite theme */
 @import "flowbite/src/themes/default";
 @source "../node_modules/flowbite";
-@plugin "flowbite/plugin";
-
 
 /* Add DaisyUI plugin */
 @plugin "daisyui";
@@ -67,17 +65,16 @@
 
 @layer base {
   body {
-    @apply font-serif transition-colors duration-300 bg-page-bg text-[#44403c];
+    /* CHANGED: Use font-sans instead of font-serif */
+    @apply font-sans transition-colors duration-300 bg-page-bg text-[#44403c];
   }
+
   .dark body {
     @apply bg-dark-page-bg text-[#EAEAE6];
   }
-  h1,
-  h2,
-  h3,
-  h4,
-  button,
-  nav {
+
+  /* These will now all use Outfit */
+  h1, h2, h3, h4, button, nav, p, li, input, a {
     @apply font-sans;
   }
 }
