@@ -6,6 +6,59 @@
     <title>Home Page</title>
     <link rel="stylesheet" href="./src/output.css" />
     <script src="./src/JavaScript/dakrMode.js" defer></script>
+    <script src="./src/JavaScript/navBar.js"></script>
+
+    <style>
+      /* Prevent horizontal scroll */
+      html,
+      body {
+        overflow-x: hidden;
+        max-width: 100%;
+      }
+
+      .animate-infinite-scroll {
+        display: flex;
+        width: max-content;
+        animation: infinite-scroll 40s linear infinite;
+      }
+
+      @keyframes infinite-scroll {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
+      /* Responsive animation speeds */
+      @media (max-width: 640px) {
+        .animate-infinite-scroll {
+          animation-duration: 20s;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .animate-infinite-scroll {
+          animation-duration: 25s;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .animate-infinite-scroll {
+          animation-duration: 50s;
+        }
+      }
+
+      /* Better responsive typography */
+      .responsive-heading {
+        font-size: clamp(1.75rem, 4vw, 3rem);
+      }
+
+      .responsive-subheading {
+        font-size: clamp(1.25rem, 2.5vw, 2.25rem);
+      }
+    </style>
   </head>
 
   <body
@@ -14,40 +67,59 @@
     <header
       class="sticky top-0 z-50 bg-page-bg shadow-sm transition-colors duration-300 dark:bg-dark-nav-bg dark:shadow-none"
     >
-      <nav class="flex items-center justify-between px-20 py-3">
+      <nav
+        class="flex items-center justify-between px-4 sm:px-6 lg:px-8 xl:px-12 py-3"
+      >
+        <!-- Logo -->
         <div class="shrink-0">
           <a href="/" aria-label="Go to homepage">
             <img
               src="./asset/logo.png"
               alt="Tinh Muy Logo"
-              class="h-14 w-auto object-contain dark:brightness-110"
+              class="h-10 sm:h-12 md:h-14 w-auto object-contain dark:brightness-110"
+              loading="lazy"
             />
           </a>
         </div>
 
+        <!-- Desktop Navigation Menu -->
         <ul
-          class="flex items-center space-x-10 text-[13px] font-bold tracking-[0.15em] text-primary-600 dark:text-secondary-400"
+          class="hidden lg:flex items-center space-x-6 xl:space-x-8 text-xs sm:text-[13px] font-bold tracking-[0.15em] text-primary-600 dark:text-secondary-400"
         >
           <li>
-            <a href="#" class="hover:text-secondary-600 transition-colors"
+            <a
+              href="#"
+              class="hover:text-secondary-600 transition-colors px-2 py-1 rounded"
               >HOME</a
             >
           </li>
           <li>
-            <a href="#" class="hover:opacity-70 transition-opacity">PRODUCT</a>
+            <a
+              href="#"
+              class="hover:opacity-70 transition-opacity px-2 py-1 rounded"
+              >PRODUCT</a
+            >
           </li>
           <li>
-            <a href="#" class="hover:opacity-70 transition-opacity">ABOUT</a>
+            <a
+              href="#"
+              class="hover:opacity-70 transition-opacity px-2 py-1 rounded"
+              >ABOUT</a
+            >
           </li>
         </ul>
 
-        <section class="flex items-center space-x-6" aria-label="User Actions">
+        <!-- Desktop User Actions -->
+        <section
+          class="hidden lg:flex items-center space-x-4 xl:space-x-6"
+          aria-label="User Actions"
+        >
           <div
-            class="flex items-center space-x-5 text-secondary-600 dark:text-secondary-400"
+            class="flex items-center space-x-4 xl:space-x-5 text-secondary-600 dark:text-secondary-400"
           >
             <button
               aria-label="Shipping status"
-              class="hover:scale-110 transition-transform"
+              class="hover:scale-110 transition-transform p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -71,7 +143,7 @@
             </button>
             <button
               aria-label="Wishlist"
-              class="hover:scale-110 transition-transform"
+              class="hover:scale-110 transition-transform p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -95,7 +167,7 @@
             </button>
             <button
               aria-label="Shopping Cart"
-              class="hover:scale-110 transition-transform"
+              class="hover:scale-110 transition-transform relative p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -114,6 +186,11 @@
                   d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"
                 />
               </svg>
+              <span
+                class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center"
+              >
+                3
+              </span>
             </button>
           </div>
 
@@ -123,6 +200,90 @@
           ></span>
 
           <div class="flex items-center space-x-3">
+            <button
+              onclick="toggleDarkMode()"
+              aria-label="Toggle Dark Mode"
+              class="p-2 rounded-md bg-secondary-600 text-white hover:bg-secondary-700 transition-colors dark:bg-secondary-800 min-h-11 min-w-11 flex items-center justify-center"
+            >
+              <svg
+                class="block dark:hidden"
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+              </svg>
+              <svg
+                class="hidden dark:block"
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="4" />
+                <path d="M12 2v2" />
+                <path d="M12 20v2" />
+                <path d="M4.93 4.93l1.41 1.41" />
+                <path d="M17.66 17.66l1.41 1.41" />
+                <path d="M2 12h2" />
+                <path d="M20 12h2" />
+                <path d="M4.93 19.07l1.41-1.41" />
+                <path d="M17.66 6.34l1.41-1.41" />
+              </svg>
+            </button>
+            <button
+              class="px-4 py-2 rounded-md bg-secondary-600 text-white text-xs font-bold tracking-wider hover:bg-secondary-700 transition-colors dark:bg-secondary-800 min-h-11"
+            >
+              LOGIN
+            </button>
+          </div>
+        </section>
+
+        <!-- Mobile Actions & Menu Button -->
+        <div class="flex items-center space-x-4 lg:hidden">
+          <!-- Mobile Icons -->
+          <div
+            class="flex items-center space-x-4 text-secondary-600 dark:text-secondary-400"
+          >
+            <button
+              aria-label="Shopping Cart"
+              class="hover:scale-110 transition-transform relative p-2"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="8" cy="21" r="1" />
+                <circle cx="19" cy="21" r="1" />
+                <path
+                  d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"
+                />
+              </svg>
+              <span
+                class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center"
+              >
+                3
+              </span>
+            </button>
+
             <button
               onclick="toggleDarkMode()"
               aria-label="Toggle Dark Mode"
@@ -165,144 +326,942 @@
                 <path d="M17.66 6.34l1.41-1.41" />
               </svg>
             </button>
-            <button
-              class="px-5 py-2 rounded-md bg-secondary-600 text-white text-xs font-bold tracking-wider hover:bg-secondary-700 transition-colors dark:bg-secondary-800"
-            >
-              LOGIN
-            </button>
           </div>
-        </section>
+
+          <!-- Mobile Menu Button -->
+          <button
+            id="mobile-menu-button"
+            aria-label="Open menu"
+            class="p-2 rounded-md text-secondary-600 dark:text-secondary-400 hover:bg-secondary-100 dark:hover:bg-secondary-800 transition-colors min-h-11 min-w-11 flex items-center justify-center"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="4" x2="20" y1="12" y2="12" />
+              <line x1="4" x2="20" y1="6" y2="6" />
+              <line x1="4" x2="20" y1="18" y2="18" />
+            </svg>
+          </button>
+        </div>
       </nav>
+
+      <!-- Mobile Menu (Hidden by default) -->
+      <div
+        id="mobile-menu"
+        class="lg:hidden hidden bg-page-bg dark:bg-dark-nav-bg border-t border-secondary-200 dark:border-secondary-800 transition-all duration-300"
+      >
+        <div class="px-4 py-6">
+          <ul class="space-y-1 text-center">
+            <li>
+              <a
+                href="#"
+                class="block py-3 px-4 text-lg font-bold tracking-wider text-primary-600 dark:text-secondary-400 hover:text-secondary-600 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors rounded-lg"
+              >
+                HOME
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block py-3 px-4 text-lg font-bold tracking-wider text-primary-600 dark:text-secondary-400 hover:text-secondary-600 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors rounded-lg"
+              >
+                PRODUCT
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block py-3 px-4 text-lg font-bold tracking-wider text-primary-600 dark:text-secondary-400 hover:text-secondary-600 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors rounded-lg"
+              >
+                ABOUT
+              </a>
+            </li>
+          </ul>
+
+          <div
+            class="mt-6 pt-6 border-t border-secondary-200 dark:border-secondary-800"
+          >
+            <div class="flex flex-col items-center space-y-4">
+              <div class="flex items-center space-x-4">
+                <button
+                  aria-label="Shipping status"
+                  class="p-3 hover:scale-110 transition-transform rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"
+                    />
+                    <path d="M15 18H9" />
+                    <path
+                      d="M19 18h2a1 1 0 0 0 1-1v-5l-4-4h-3v10a1 1 0 0 0 1 1Z"
+                    />
+                    <circle cx="7" cy="18" r="2" />
+                    <circle cx="17" cy="18" r="2" />
+                  </svg>
+                </button>
+                <button
+                  aria-label="Wishlist"
+                  class="p-3 hover:scale-110 transition-transform rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+                    <path
+                      d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                    />
+                    <path d="M9 12h6" />
+                    <path d="M9 16h6" />
+                    <path d="M9 8h6" />
+                  </svg>
+                </button>
+              </div>
+
+              <button
+                class="w-full max-w-xs px-5 py-3 rounded-md bg-secondary-600 text-white text-sm font-bold tracking-wider hover:bg-secondary-700 transition-colors dark:bg-secondary-800 min-h-11"
+              >
+                LOGIN
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </header>
 
-    <main></main>
+    <main>
+      <!-- Hero Section -->
+      <header
+        class="relative w-full bg-page-bg dark:bg-dark-page-bg overflow-hidden font-sans transition-colors duration-300"
+      >
+        <section
+          class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 min-h-auto px-10"
+        >
+          <article
+            class="z-10 py-8 md:py-16 flex flex-col justify-start items-start"
+          >
+            <h1
+              class="responsive-heading font-bold text-secondary-700 dark:text-secondary-400 leading-tight mb-4 md:mb-6 max-w-xl"
+            >
+              Clothes That Feel Like Freedom, Designed for
+              <span
+                class="block text-primary-900 dark:text-primary-50 responsive-subheading mt-1 md:mt-2"
+              >
+                Movement, Memory, and Everyday Magic.
+              </span>
+            </h1>
+
+            <p
+              class="text-primary-500 dark:text-primary-400 text-base sm:text-lg md:text-xl max-w-md mb-6 md:mb-8 leading-relaxed"
+            >
+              Ethically crafted from natural, breathable materials that move
+              with you from morning coffee to sunset views.
+            </p>
+
+            <nav>
+              <button
+                class="bg-secondary-600 hover:bg-secondary-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg transition-all duration-300 font-medium shadow-sm dark:bg-secondary-700 dark:hover:bg-secondary-600 min-h-11 text-sm sm:text-base"
+              >
+                Shop The Collection
+              </button>
+            </nav>
+
+            <aside
+              class="mt-12 md:mt-16 flex flex-wrap items-center gap-6 md:gap-8"
+            >
+              <article class="flex flex-col">
+                <h3
+                  class="text-2xl sm:text-3xl md:text-4xl font-bold text-primary-900 dark:text-primary-50"
+                >
+                  100+
+                </h3>
+                <p
+                  class="text-xs sm:text-sm md:text-base text-primary-500 dark:text-primary-400 font-medium"
+                >
+                  International Brands
+                </p>
+              </article>
+              <div
+                class="h-8 sm:h-12 border-l border-primary-300 dark:border-primary-700 hidden sm:block"
+              ></div>
+              <article class="flex flex-col">
+                <h3
+                  class="text-2xl sm:text-3xl md:text-4xl font-bold text-primary-900 dark:text-primary-50"
+                >
+                  2,000+
+                </h3>
+                <p
+                  class="text-xs sm:text-sm md:text-base text-primary-500 dark:text-primary-400 font-medium"
+                >
+                  High-Quality Products
+                </p>
+              </article>
+
+              <div
+                class="h-8 sm:h-12 border-l border-primary-300 dark:border-primary-700 hidden sm:block"
+              ></div>
+              <article class="flex flex-col">
+                <h3
+                  class="text-2xl sm:text-3xl md:text-4xl font-bold text-primary-900 dark:text-primary-50"
+                >
+                  50,000+
+                </h3>
+                <p
+                  class="text-xs sm:text-sm md:text-base text-primary-500 dark:text-primary-400 font-medium"
+                >
+                  Happy Customers
+                </p>
+              </article>
+            </aside>
+          </article>
+
+          <figure
+            class="relative flex items-center justify-center pt-8 md:pt-10"
+          >
+            <img
+              src="./asset/model1.png"
+              alt="Models wearing denim"
+              class="max-w-lg md:max-w-none w-[78%] h-auto object-cover z-10 block"
+              loading="lazy"
+            />
+            <div
+              class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-secondary-600/10 dark:bg-secondary-400/5 rounded-full blur-3xl z-0"
+            ></div>
+          </figure>
+        </section>
+
+        <!-- Brand Marquee Section -->
+        <aside
+          class="w-full overflow-hidden py-6 md:py-8 bg-secondary-700 dark:bg-dark-nav-bg mb-10"
+        >
+          <div class="relative">
+            <div
+              class="flex items-center px-4 brightness-0 invert opacity-80 animate-infinite-scroll"
+            >
+              <!-- Logo Set 1 -->
+              <img
+                src="./image/brand/nikelogo.png"
+                alt="Nike"
+                class="h-10 sm:h-12 md:h-14 lg:h-16 mx-4 sm:mx-6 md:mx-8"
+                loading="lazy"
+              />
+              <img
+                src="./image/brand/lv.png"
+                alt="Louis Vuitton"
+                class="h-12 sm:h-14 md:h-16 lg:h-18 mx-4 sm:mx-6 md:mx-8"
+                loading="lazy"
+              />
+              <img
+                src="./image/brand/g.png"
+                alt="Gucci"
+                class="h-8 sm:h-10 md:h-12 lg:h-14 mx-4 sm:mx-6 md:mx-8"
+                loading="lazy"
+              />
+              <img
+                src="./image/brand/ad.png"
+                alt="Adidas"
+                class="h-10 sm:h-12 md:h-14 lg:h-16 mx-4 sm:mx-6 md:mx-8"
+                loading="lazy"
+              />
+
+              <!-- Logo Set 2 (Duplicate for seamless loop) -->
+              <img
+                src="./image/brand/nikelogo.png"
+                alt="Nike"
+                class="h-10 sm:h-12 md:h-14 lg:h-16 mx-4 sm:mx-6 md:mx-8"
+                loading="lazy"
+              />
+              <img
+                src="./image/brand/lv.png"
+                alt="Louis Vuitton"
+                class="h-12 sm:h-14 md:h-16 lg:h-18 mx-4 sm:mx-6 md:mx-8"
+                loading="lazy"
+              />
+              <img
+                src="./image/brand/g.png"
+                alt="Gucci"
+                class="h-8 sm:h-10 md:h-12 lg:h-14 mx-4 sm:mx-6 md:mx-8"
+                loading="lazy"
+              />
+              <img
+                src="./image/brand/ad.png"
+                alt="Adidas"
+                class="h-10 sm:h-12 md:h-14 lg:h-16 mx-4 sm:mx-6 md:mx-8"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </aside>
+      </header>
+
+      <!-- New Arrival Section -->
+      <section
+        class="bg-secondary-50 py-16 px-4 font-sans text-secondary-900 transition-colors duration-300 dark:bg-dark-page-bg dark:text-primary-100"
+      >
+        <div class="mx-auto max-w-7xl">
+          <header>
+            <h2
+              class="mb-12 text-center text-4xl font-bold tracking-tight text-primary-900 dark:text-primary-50"
+            >
+              New Arrival
+            </h2>
+          </header>
+
+          <div class="relative flex items-center">
+            <nav>
+              <button
+                class="absolute -left-4 z-10 hidden cursor-pointer md:block lg:-left-8 group"
+              >
+                <svg
+                  class="h-12 w-12 stroke-secondary-600 stroke-1 transition-colors group-hover:stroke-secondary-900 dark:stroke-secondary-400 dark:group-hover:stroke-primary-50"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+            </nav>
+
+            <div
+              class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 w-full"
+            >
+              <article class="group cursor-pointer flex flex-col">
+                <figure
+                  class="relative aspect-4/5 overflow-hidden bg-primary-100 dark:bg-primary-900/20"
+                >
+                  <img
+                    src="./image/homepage/aja.png"
+                    alt="A'ja Wilson T-Shirt"
+                    class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <span
+                    class="absolute right-2 bottom-2 bg-accent-brand px-3 py-1 text-xs font-semibold text-white rounded-full"
+                    >New Arrival</span
+                  >
+                </figure>
+                <div class="mt-4 flex flex-1 flex-col">
+                  <div class="flex gap-2 mb-3">
+                    <span class="h-4 w-4 rounded-full bg-[#5d5a36]"></span>
+                    <span class="h-4 w-4 rounded-full bg-black"></span>
+                    <span class="h-4 w-4 rounded-full bg-[#e6f0ff]"></span>
+                  </div>
+                  <h3 class="text-xl font-bold dark:text-primary-50">
+                    A'ja Wilson
+                  </h3>
+                  <p class="text-sm text-primary-600 dark:text-primary-400">
+                    Dri-FIT Basketball T-Shirt
+                  </p>
+                  <p class="text-xs text-primary-400">3 Colors</p>
+                  <p class="mt-auto pt-4 font-semibold text-accent-brand">
+                    $ 47
+                  </p>
+                </div>
+              </article>
+
+              <article class="group cursor-pointer flex flex-col">
+                <figure
+                  class="relative aspect-4/5 bg-white dark:bg-primary-900/40 p-8"
+                >
+                  <img
+                    src="./image/homepage/gu.png"
+                    alt="Crêpe wool jacket"
+                    class="h-full w-full object-contain"
+                  />
+                  <span
+                    class="absolute right-2 bottom-2 bg-accent-brand px-3 py-1 text-xs font-semibold text-white rounded-full"
+                    >New Arrival</span
+                  >
+                </figure>
+                <div class="mt-4 flex flex-1 flex-col">
+                  <div class="mb-3 h-4"></div>
+                  <h3 class="text-xl font-bold dark:text-primary-50">
+                    Crêpe wool
+                  </h3>
+                  <p
+                    class="text-sm text-primary-600 dark:text-primary-400 line-clamp-1"
+                  >
+                    Introducing Spring Summer....
+                  </p>
+                  <p class="mt-auto pt-4 font-semibold text-accent-brand">
+                    $ 3,400
+                  </p>
+                </div>
+              </article>
+
+              <article class="group cursor-pointer flex flex-col">
+                <figure
+                  class="relative aspect-4/5 bg-white dark:bg-primary-900/40 p-8"
+                >
+                  <img
+                    src="./image/homepage/lv.png"
+                    alt="Neverfull MM"
+                    class="h-full w-full object-contain"
+                  />
+                  <span
+                    class="absolute right-2 bottom-2 bg-accent-brand px-3 py-1 text-xs font-semibold text-white rounded-full"
+                    >New Arrival</span
+                  >
+                </figure>
+                <div class="mt-4 flex flex-1 flex-col">
+                  <div class="mb-3 h-4"></div>
+                  <h3 class="text-xl font-bold dark:text-primary-50">
+                    Neverfull MM
+                  </h3>
+                  <p class="text-sm text-primary-600 dark:text-primary-400">
+                    A true collector's piece
+                  </p>
+                  <p class="mt-auto pt-4 font-semibold text-accent-brand">
+                    $ 2,940
+                  </p>
+                </div>
+              </article>
+
+              <article class="group cursor-pointer flex flex-col">
+                <figure
+                  class="relative aspect-4/5 bg-secondary-100 dark:bg-primary-900/20 p-4"
+                >
+                  <img
+                    src="./image/homepage/adi.png"
+                    alt="Samba OG"
+                    class="h-full w-full object-contain"
+                  />
+                  <span
+                    class="absolute right-2 bottom-2 bg-accent-brand px-3 py-1 text-xs font-semibold text-white rounded-full"
+                    >New Arrival</span
+                  >
+                </figure>
+                <div class="mt-4 flex flex-1 flex-col">
+                  <div class="flex items-center gap-2 mb-3">
+                    <span class="h-4 w-4 rounded-full bg-[#c2cace]"></span>
+                    <span class="h-4 w-4 rounded-full bg-[#10447a]"></span>
+                    <span class="h-4 w-4 rounded-full bg-[#2d453d]"></span>
+                    <span class="text-xs text-primary-400">...</span>
+                  </div>
+                  <h3 class="text-xl font-bold dark:text-primary-50">
+                    Samba OG
+                  </h3>
+                  <p
+                    class="text-sm text-primary-600 dark:text-primary-400 line-clamp-1"
+                  >
+                    Authentic Samba shoes for....
+                  </p>
+                  <p class="text-xs text-primary-400">9 Colors</p>
+                  <p class="mt-auto pt-4 font-semibold text-accent-brand">
+                    $ 80
+                  </p>
+                </div>
+              </article>
+            </div>
+
+            <nav>
+              <button
+                class="absolute -right-4 z-10 hidden cursor-pointer md:block lg:-right-8 group"
+              >
+                <svg
+                  class="h-12 w-12 stroke-secondary-600 stroke-1 transition-colors group-hover:stroke-secondary-900 dark:stroke-secondary-400 dark:group-hover:stroke-primary-50"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </nav>
+          </div>
+
+          <footer class="mt-16 flex justify-center">
+            <nav>
+              <button
+                class="rounded-lg bg-secondary-600 px-12 py-4 text-xl font-semibold text-white transition-all hover:bg-secondary-700 cursor-pointer shadow-md active:scale-95 dark:bg-secondary-700 dark:hover:bg-secondary-600"
+              >
+                View More
+              </button>
+            </nav>
+          </footer>
+        </div>
+      </section>
+
+      <section
+        class="bg-secondary-50 py-16 px-6 md:px-12 lg:px-24 dark:bg-dark-page-bg transition-colors duration-300"
+      >
+        <div
+          class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+        >
+          <div class="relative flex justify-center lg:justify-start">
+            <img
+              src="./asset/Ecommerce web page-pana.svg"
+              alt="Fashion Illustration"
+              class="w-full max-w-150 h-auto object-contain dark:opacity-80"
+            />
+          </div>
+
+          <div class="space-y-8 text-secondary-900 dark:text-primary-100">
+            <div class="space-y-4">
+              <h2
+                class="text-4xl md:text-5xl font-extrabold tracking-tight text-primary-900 dark:text-primary-50"
+              >
+                Curated Global Fashion
+              </h2>
+              <p
+                class="text-lg leading-relaxed text-primary-600 dark:text-primary-400 max-w-xl"
+              >
+                We discover exceptional fashion from designers worldwide. Each
+                brand in our collection is handpicked for quality,
+                craftsmanship, and timeless style.
+              </p>
+            </div>
+
+            <ul class="space-y-5">
+              <li class="flex items-center gap-4 text-lg font-medium">
+                <span
+                  class="w-6 h-6 rounded-full bg-secondary-600 shrink-0 shadow-sm"
+                ></span>
+                Quality-vetted pieces
+              </li>
+              <li class="flex items-center gap-4 text-lg font-medium">
+                <span
+                  class="w-6 h-6 rounded-full bg-secondary-400 shrink-0 shadow-sm"
+                ></span>
+                Carefully curated selection
+              </li>
+              <li class="flex items-center gap-4 text-lg font-medium">
+                <span
+                  class="w-6 h-6 rounded-full bg-accent-brand shrink-0 shadow-sm"
+                ></span>
+                Global brand discovery
+              </li>
+            </ul>
+
+            <div class="pt-4">
+              <a
+                href="#"
+                class="inline-flex items-center gap-2 text-lg font-bold text-secondary-700 dark:text-secondary-400 hover:underline decoration-2 underline-offset-8 transition-all"
+              >
+                Learn More About Us
+                <svg
+                  class="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="bg-page-bg py-20 px-6 overflow-hidden relative dark:bg-dark-page-bg transition-colors duration-300"
+      >
+        <div
+          class="absolute -right-25 top-1/2 -translate-y-1/2 opacity-10 hidden lg:block pointer-events-none"
+        >
+          <div
+            class="w-96 h-96 border border-secondary-600 rounded-full scale-150"
+          ></div>
+          <div
+            class="absolute inset-0 w-96 h-96 border border-secondary-600 rounded-full scale-125"
+          ></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto">
+          <div class="text-center mb-16">
+            <h2
+              class="text-4xl font-extrabold text-primary-900 dark:text-primary-50 mb-4"
+            >
+              Frequently Asked Questions
+            </h2>
+            <p class="text-primary-600 dark:text-primary-400">
+              Everything you need to know about shopping with us
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="flex justify-center">
+              <img
+                src="./asset/Online world-rafiki.svg"
+                alt="FAQ"
+                class="w-full max-w-md h-auto dark:opacity-80"
+              />
+            </div>
+
+            <div class="space-y-4">
+              <div class="group">
+                <button
+                  class="flex items-center justify-between w-full p-6 font-bold text-left bg-white dark:bg-primary-900/40 rounded-2xl shadow-sm hover:shadow-md transition-all text-primary-900 dark:text-primary-50"
+                >
+                  <span>How do I know my size?</span>
+                  <div
+                    class="bg-accent-brand/20 p-1 rounded-md text-accent-brand"
+                  >
+                    <svg
+                      class="w-6 h-6"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 6v12m6-6H6"
+                      />
+                    </svg>
+                  </div>
+                </button>
+              </div>
+              <div class="group">
+                <button
+                  class="flex items-center justify-between w-full p-6 font-bold text-left bg-white dark:bg-primary-900/40 rounded-2xl shadow-sm hover:shadow-md transition-all text-primary-900 dark:text-primary-50"
+                >
+                  <span>What is your return policy?</span>
+                  <div
+                    class="bg-accent-brand/20 p-1 rounded-md text-accent-brand"
+                  >
+                    <svg
+                      class="w-6 h-6"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 6v12m6-6H6"
+                      />
+                    </svg>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="bg-secondary-50 py-20 px-6 relative dark:bg-dark-page-bg transition-colors duration-300"
+      >
+        <div class="max-w-7xl mx-auto">
+          <h2
+            class="text-center text-3xl font-extrabold text-primary-900 dark:text-primary-50 mb-12"
+          >
+            Client Feedback
+          </h2>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div
+              class="bg-secondary-600 dark:bg-secondary-800 rounded-3xl p-8 flex flex-col justify-between text-white min-h-100 shadow-xl"
+            >
+              <div>
+                <p
+                  class="text-accent-brand text-sm font-bold uppercase tracking-widest mb-4"
+                >
+                  Reviews
+                </p>
+                <h3 class="text-4xl font-extrabold leading-tight mb-4">
+                  What they say after using our service
+                </h3>
+                <p class="text-primary-100 opacity-80">
+                  Many of our clients have started to change their lifestyle
+                  with us.
+                </p>
+              </div>
+              <button
+                class="w-full py-4 bg-accent-brand hover:scale-105 active:scale-95 text-white font-bold rounded-xl transition-all shadow-lg"
+              >
+                Join Now!
+              </button>
+            </div>
+
+            <div
+              class="bg-white dark:bg-primary-900/40 rounded-3xl p-8 shadow-sm flex flex-col items-center text-center space-y-6"
+            >
+              <span class="text-4xl">😊</span>
+              <h4
+                class="text-xl font-bold text-primary-900 dark:text-primary-50 uppercase tracking-widest"
+              >
+                Exceptional Quality
+              </h4>
+              <hr class="w-full border-primary-100 dark:border-primary-800" />
+              <p
+                class="text-primary-600 dark:text-primary-400 leading-relaxed italic"
+              >
+                "The quality of pieces here is incredible. I've found brands I'd
+                never discover on my own. My go-to for special occasions!"
+              </p>
+              <div class="flex gap-1 text-accent-brand text-xl">★★★★★</div>
+            </div>
+
+            <div
+              class="bg-white dark:bg-primary-900/40 rounded-3xl p-8 shadow-sm flex flex-col items-center text-center space-y-6"
+            >
+              <span class="text-4xl">🤩</span>
+              <h4
+                class="text-xl font-bold text-primary-900 dark:text-primary-50 uppercase tracking-widest"
+              >
+                Style Magic
+              </h4>
+              <hr class="w-full border-primary-100 dark:border-primary-800" />
+              <p
+                class="text-primary-600 dark:text-primary-400 leading-relaxed italic"
+              >
+                "Truly a curated experience. Every purchase feels intentional
+                and high-quality. Highly recommend to anyone."
+              </p>
+              <div class="flex gap-1 text-accent-brand text-xl">★★★★★</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="bg-secondary-50 py-12 px-6 dark:bg-dark-page-bg transition-colors duration-300"
+      >
+        <div class="max-w-7xl mx-auto">
+          <div
+            class="bg-secondary-700 dark:bg-dark-nav-bg rounded-[40px] p-8 md:p-16 flex flex-col lg:flex-row items-center justify-between gap-10 shadow-2xl"
+          >
+            <div class="lg:max-w-xl text-center lg:text-left">
+              <h2
+                class="text-4xl md:text-5xl font-extrabold text-white leading-tight uppercase tracking-tight"
+              >
+                Stay up to date about <br class="hidden md:block" />
+                our latest offers
+              </h2>
+            </div>
+
+            <div class="w-full lg:max-w-md flex flex-col gap-4">
+              <div class="relative">
+                <div
+                  class="absolute inset-y-0 left-0 pl-6 flex items-center pointer-events-none text-primary-400"
+                >
+                  <svg
+                    class="h-6 w-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                    />
+                  </svg>
+                </div>
+                <input
+                  type="email"
+                  placeholder="Enter Your Email Here"
+                  class="w-full bg-primary-50 border-none rounded-full py-5 pl-14 pr-6 text-primary-900 placeholder-primary-400 focus:ring-4 focus:ring-accent-brand/30 outline-none transition-all"
+                />
+              </div>
+              <button
+                class="w-full bg-primary-50 hover:bg-white text-secondary-700 font-extrabold py-5 rounded-full transition-all shadow-md active:scale-95"
+              >
+                Subscribe to Newsletter
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
 
     <footer
-      class="bg-secondary-700 py-12 px-6 font-sans dark:bg-dark-nav-bg transition-colors duration-300"
+      class="bg-secondary-700 py-8 px-4 sm:py-12 sm:px-6 font-sans dark:bg-dark-nav-bg transition-colors duration-300"
     >
       <div class="max-w-7xl mx-auto">
         <div
-          class="grid grid-cols-1 md:grid-cols-5 gap-8 text-center md:text-left"
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-10 lg:gap-12 text-center sm:text-left"
         >
-          <article class="flex flex-col items-center md:items-start gap-4">
-            <h3 class="text-xl font-semibold mb-2 text-primary-50">
+          <!-- Organize By Section -->
+          <article
+            class="flex flex-col items-center sm:items-start gap-4 sm:gap-5"
+          >
+            <h3
+              class="text-lg sm:text-xl lg:text-2xl font-semibold mb-2 text-primary-50"
+            >
               Organize By
             </h3>
             <figure>
               <img
                 src="./asset/Istad.png"
                 alt="ISTAD Logo"
-                class="w-24 h-24 object-contain rounded-full p-1"
+                class="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 object-contain rounded-full p-1"
+                loading="lazy"
               />
             </figure>
-            <p class="text-sm leading-relaxed max-w-50 text-secondary-100">
+            <p
+              class="text-sm sm:text-base leading-relaxed max-w-xs text-secondary-100 px-2 sm:px-0"
+            >
               Institute of Science and Technology Advanced Development
             </p>
           </article>
 
-          <nav aria-labelledby="footer-explore">
+          <!-- Explore Section -->
+          <nav aria-labelledby="footer-explore" class="mt-4 sm:mt-0">
             <h3
               id="footer-explore"
-              class="text-xl font-semibold mb-6 text-primary-50"
+              class="text-lg sm:text-xl lg:text-2xl font-semibold mb-4 sm:mb-6 text-primary-50"
             >
               Explore
             </h3>
-            <ul class="space-y-4 text-secondary-200">
+            <ul class="space-y-3 sm:space-y-4 text-secondary-200">
               <li>
-                <a href="#" class="hover:text-accent-brand transition-colors"
+                <a
+                  href="#"
+                  class="hover:text-accent-brand transition-colors text-sm sm:text-base lg:text-lg block py-1"
                   >Home</a
                 >
               </li>
               <li>
-                <a href="#" class="hover:text-accent-brand transition-colors"
+                <a
+                  href="#"
+                  class="hover:text-accent-brand transition-colors text-sm sm:text-base lg:text-lg block py-1"
                   >Product</a
                 >
               </li>
               <li>
-                <a href="#" class="hover:text-accent-brand transition-colors"
+                <a
+                  href="#"
+                  class="hover:text-accent-brand transition-colors text-sm sm:text-base lg:text-lg block py-1"
                   >About Us</a
                 >
               </li>
             </ul>
           </nav>
 
-          <nav aria-labelledby="footer-brand">
+          <!-- Brand Section -->
+          <nav aria-labelledby="footer-brand" class="mt-4 sm:mt-0">
             <h3
               id="footer-brand"
-              class="text-xl font-semibold mb-6 text-primary-50"
+              class="text-lg sm:text-xl lg:text-2xl font-semibold mb-4 sm:mb-6 text-primary-50"
             >
               Brand
             </h3>
-            <ul class="space-y-4 text-secondary-200">
+            <ul class="space-y-3 sm:space-y-4 text-secondary-200">
               <li>
-                <a href="#" class="hover:text-accent-brand transition-colors"
+                <a
+                  href="#"
+                  class="hover:text-accent-brand transition-colors text-sm sm:text-base lg:text-lg block py-1"
                   >Nike</a
                 >
               </li>
               <li>
-                <a href="#" class="hover:text-accent-brand transition-colors"
+                <a
+                  href="#"
+                  class="hover:text-accent-brand transition-colors text-sm sm:text-base lg:text-lg block py-1"
                   >Louis Vuitton</a
                 >
               </li>
               <li>
-                <a href="#" class="hover:text-accent-brand transition-colors"
+                <a
+                  href="#"
+                  class="hover:text-accent-brand transition-colors text-sm sm:text-base lg:text-lg block py-1"
                   >Gucci</a
                 >
               </li>
               <li>
-                <a href="#" class="hover:text-accent-brand transition-colors"
+                <a
+                  href="#"
+                  class="hover:text-accent-brand transition-colors text-sm sm:text-base lg:text-lg block py-1"
                   >Adidas</a
                 >
               </li>
             </ul>
           </nav>
 
-          <nav aria-labelledby="footer-info">
+          <!-- Information Section -->
+          <nav aria-labelledby="footer-info" class="mt-4 sm:mt-0">
             <h3
               id="footer-info"
-              class="text-xl font-semibold mb-6 text-primary-50"
+              class="text-lg sm:text-xl lg:text-2xl font-semibold mb-4 sm:mb-6 text-primary-50"
             >
               Information
             </h3>
-            <ul class="space-y-4 text-secondary-200">
+            <ul class="space-y-3 sm:space-y-4 text-secondary-200">
               <li>
-                <a href="#" class="hover:text-accent-brand transition-colors"
+                <a
+                  href="#"
+                  class="hover:text-accent-brand transition-colors text-sm sm:text-base lg:text-lg block py-1"
                   >Feedback</a
                 >
               </li>
               <li>
-                <a href="#" class="hover:text-accent-brand transition-colors"
+                <a
+                  href="#"
+                  class="hover:text-accent-brand transition-colors text-sm sm:text-base lg:text-lg block py-1"
                   >FAQ</a
                 >
               </li>
               <li>
-                <a href="#" class="hover:text-accent-brand transition-colors"
+                <a
+                  href="#"
+                  class="hover:text-accent-brand transition-colors text-sm sm:text-base lg:text-lg block py-1"
                   >Support</a
                 >
               </li>
             </ul>
           </nav>
 
-          <aside class="flex flex-col items-center gap-4">
+          <!-- Logo Section -->
+          <aside class="flex flex-col items-center gap-4 sm:gap-5 mt-4 sm:mt-0">
             <img
               src="./asset/logo.png"
               alt="Product Icon"
-              class="w-16 h-16 object-contain brightness-0 invert opacity-90"
+              class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 object-contain brightness-0 invert opacity-90"
+              loading="lazy"
             />
             <p
-              class="text-sm text-center leading-snug italic text-secondary-100"
+              class="text-sm sm:text-base text-center leading-snug italic text-secondary-100 px-4 sm:px-0 max-w-xs"
             >
               Provide High Quality Products For Everyone
             </p>
           </aside>
         </div>
 
-        <div class="mt-12 pt-8 border-t border-secondary-400/30 text-center">
-          <small class="text-sm text-secondary-300">
+        <!-- Copyright Section -->
+        <div
+          class="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-secondary-400/30 text-center"
+        >
+          <small class="text-sm sm:text-base text-secondary-300">
             &copy; 2026 TinhMuy | All Rights Reserved
           </small>
         </div>
       </div>
     </footer>
+
+    <script src="./node_modules/flowbite/dist/flowbite.min.js"></script>
   </body>
 </html>
