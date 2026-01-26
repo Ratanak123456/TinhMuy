@@ -1,0 +1,329 @@
+{
+  "brand": {
+    "B001": {
+      "id": "B001",
+      "logo": "https://pngimg.com/uploads/nike/nike_PNG4.png",
+      "name": "Nike"
+    },
+    "B002": {
+      "id": "B002",
+      "logo": "https://freepnglogo.com/images/all_img/1723892086gucci-white-logo.png",
+      "name": "Gucci"
+    },
+    "B003": {
+      "id": "B003",
+      "logo": "https://www.iannytextile.com/content/uploads/2016/06/louis-vuitton-logo.png",
+      "name": "Louis Vuitton"
+    },
+    "B004": {
+      "id": "B004",
+      "logo": "https://www.nicepng.com/png/full/1-18668_white-adidas-logo-png-clip-art-library-french.png",
+      "name": "Adidas"
+    }
+  },
+  "products": {
+    "A001": {
+      "brandId": "B004",
+      "category": "Footwear",
+      "colors": [
+        "Black",
+        "White",
+        "Gray",
+        "Blue"
+      ],
+      "description": "Iconic sneakers with cloudfoam comfort and memory sock liner. Perfect for all-day wear.",
+      "featured": true,
+      "id": "A001",
+      "images": [
+        "/products/adidas-shoes-1.jpg",
+        "/products/adidas-shoes-2.jpg"
+      ],
+      "material": "Primeknit",
+      "name": "Ultraboost 22",
+      "price": 180,
+      "rating": 4.8,
+      "sizes": [
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
+      "status": "Best Seller",
+      "stock": 95
+    },
+    "A002": {
+      "brandId": "B004",
+      "category": "Activewear",
+      "colors": [
+        "Black",
+        "Navy",
+        "Dark Gray"
+      ],
+      "description": "Moisture-wicking training jacket with zip pockets and adjustable hood. Perfect for outdoor workouts.",
+      "featured": false,
+      "id": "A002",
+      "images": [
+        "/products/adidas-jacket-1.jpg",
+        "/products/adidas-jacket-2.jpg"
+      ],
+      "material": "Polyester",
+      "name": "Training Essentials Jacket",
+      "price": 65,
+      "rating": 4.4,
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "status": "In Stock",
+      "stock": 60
+    },
+    "A003": {
+      "brandId": "B004",
+      "category": "Activewear",
+      "colors": [
+        "Black",
+        "Gray",
+        "Navy"
+      ],
+      "description": "Three-stripes track pants with tapered fit and elastic waistband. Made with recycled materials.",
+      "featured": true,
+      "id": "A003",
+      "images": [
+        "/products/adidas-pants-1.jpg",
+        "/products/adidas-pants-2.jpg"
+      ],
+      "material": "Recycled Polyester",
+      "name": "Tiro 23 Training Pants",
+      "price": 55,
+      "rating": 4.6,
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "status": "Eco-Friendly",
+      "stock": 85
+    },
+    "G001": {
+      "brandId": "B002",
+      "category": "Handbags",
+      "colors": [
+        "Black",
+        "Beige",
+        "Red"
+      ],
+      "description": "Iconic GG Marmont matelassé leather shoulder bag with chain strap. Features the double G hardware and chevron pattern.",
+      "featured": true,
+      "id": "G001",
+      "images": [
+        "/products/gucci-bag-1.jpg",
+        "/products/gucci-bag-2.jpg"
+      ],
+      "material": "Leather",
+      "name": "GG Marmont Shoulder Bag",
+      "price": 2450,
+      "rating": 4.9,
+      "sizes": [
+        "One Size"
+      ],
+      "status": "Luxury",
+      "stock": 12
+    },
+    "G002": {
+      "brandId": "B002",
+      "category": "Footwear",
+      "colors": [
+        "Black",
+        "Brown",
+        "Burgundy"
+      ],
+      "description": "Classic leather loafers with horsebit detail. Handcrafted in Italy with the finest materials.",
+      "featured": false,
+      "id": "G002",
+      "images": [
+        "/products/gucci-shoes-1.jpg",
+        "/products/gucci-shoes-2.jpg"
+      ],
+      "material": "Calfskin Leather",
+      "name": "Princetown Leather Loafers",
+      "price": 850,
+      "rating": 4.7,
+      "sizes": [
+        "7",
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "status": "Limited Edition",
+      "stock": 8
+    },
+    "G003": {
+      "brandId": "B002",
+      "category": "Accessories",
+      "colors": [
+        "Black",
+        "Brown"
+      ],
+      "description": "Interlocking G buckle belt in black leather. Adjustable size with gold-tone hardware.",
+      "featured": false,
+      "id": "G003",
+      "images": [
+        "/products/gucci-belt-1.jpg",
+        "/products/gucci-belt-2.jpg"
+      ],
+      "material": "Leather",
+      "name": "GG Supreme Belt",
+      "price": 450,
+      "rating": 4.7,
+      "sizes": [
+        "90cm",
+        "95cm",
+        "100cm",
+        "105cm"
+      ],
+      "status": "Classic",
+      "stock": 18
+    },
+    "LV001": {
+      "brandId": "B003",
+      "category": "Bags",
+      "colors": [
+        "Brown Monogram"
+      ],
+      "description": "Monogram canvas backpack with leather trim and gold-tone hardware. Features multiple compartments and adjustable straps.",
+      "featured": true,
+      "id": "LV001",
+      "images": [
+        "/products/lv-backpack-1.jpg",
+        "/products/lv-backpack-2.jpg"
+      ],
+      "material": "Canvas & Leather",
+      "name": "Monogram Backpack",
+      "price": 2200,
+      "rating": 4.8,
+      "sizes": [
+        "One Size"
+      ],
+      "status": "Luxury",
+      "stock": 6
+    },
+    "LV002": {
+      "brandId": "B003",
+      "category": "Accessories",
+      "colors": [
+        "Brown Damier",
+        "Black Epi"
+      ],
+      "description": "Damier Ebene canvas wallet with multiple card slots, bill compartment, and coin pocket.",
+      "featured": false,
+      "id": "LV002",
+      "images": [
+        "/products/lv-wallet-1.jpg",
+        "/products/lv-wallet-2.jpg"
+      ],
+      "material": "Canvas",
+      "name": "Multiple Wallet",
+      "price": 580,
+      "rating": 4.6,
+      "sizes": [
+        "One Size"
+      ],
+      "status": "Classic",
+      "stock": 25
+    },
+    "N001": {
+      "brandId": "B001",
+      "category": "Outerwear",
+      "colors": [
+        "Black",
+        "Navy Blue",
+        "Olive Green"
+      ],
+      "description": "Nike Life is your uniform for the daily grind. Built to be durable and versatile, it's a fresh take on iconic menswear. Our version of a field jacket is crafted with a heavyweight, structured cotton twill. Its roomy fit makes layering easy.",
+      "featured": true,
+      "id": "N001",
+      "images": [
+        "/products/nike-jacket-1.jpg",
+        "/products/nike-jacket-2.jpg"
+      ],
+      "material": "Cotton Twill",
+      "name": "Nike Life Field Jacket",
+      "price": 185,
+      "rating": 4.7,
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "status": "New arrival",
+      "stock": 45
+    },
+    "N002": {
+      "brandId": "B001",
+      "category": "Footwear",
+      "colors": [
+        "Black/White",
+        "Red/Black",
+        "Blue/White"
+      ],
+      "description": "Experience ultimate comfort and performance with these running shoes. Featuring responsive cushioning and breathable mesh upper for all-day comfort.",
+      "featured": true,
+      "id": "N002",
+      "images": [
+        "/products/nike-shoes-1.jpg",
+        "/products/nike-shoes-2.jpg"
+      ],
+      "material": "Mesh & Synthetic",
+      "name": "Air Max 270",
+      "price": 150,
+      "rating": 4.8,
+      "sizes": [
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
+      "status": "Best Seller",
+      "stock": 78
+    },
+    "N003": {
+      "brandId": "B001",
+      "category": "Activewear",
+      "colors": [
+        "Black",
+        "Gray",
+        "White",
+        "Red"
+      ],
+      "description": "Lightweight and breathable training t-shirt with Dri-FIT technology to keep you dry and comfortable during workouts.",
+      "featured": false,
+      "id": "N003",
+      "images": [
+        "/products/nike-tshirt-1.jpg",
+        "/products/nike-tshirt-2.jpg"
+      ],
+      "material": "Polyester",
+      "name": "Dri-FIT Training Tee",
+      "price": 35,
+      "rating": 4.5,
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "status": "In Stock",
+      "stock": 120
+    }
+  }
+}
