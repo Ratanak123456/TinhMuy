@@ -9,7 +9,7 @@ export const registerTemplate = `
   <div class="flex-1 flex flex-col lg:flex-row items-center justify-center gap-12 max-w-7xl mx-auto w-full py-8">
     <aside class="hidden lg:flex flex-1 items-center justify-center h-full">
       <figure class="h-full flex items-center justify-center">
-        <img src="../../asset/signup.svg" alt="Register Illustration" class="max-h-150 w-auto object-contain rounded-2xl shadow-2xl h-full">
+        <img src="../../asset/signup.svg" alt="Register Illustration" class="max-h-[600px] w-auto object-contain rounded-2xl shadow-2xl h-full">
       </figure>
     </aside>
     
@@ -24,29 +24,6 @@ export const registerTemplate = `
         </header>
 
         <form id="registerForm" class="space-y-4">
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div class="space-y-1">
-              <label for="username" class="block text-sm font-medium text-gray-600 ml-1">Username</label>
-              <input id="username" type="text" placeholder="Username" required class="w-full px-4 py-3 rounded-xl border border-gray-200 outline-none focus:ring-2 focus:ring-[#76948f]/20 focus:border-[#76948f] transition-all placeholder:text-gray-300">
-            </div>
-            <div class="space-y-1">
-              <label for="gender" class="block text-sm font-medium text-gray-600 ml-1">Gender</label>
-              <div class="relative">
-                <select id="gender" class="w-full px-4 py-3 rounded-xl border border-gray-200 outline-none focus:ring-2 focus:ring-[#76948f]/20 focus:border-[#76948f] transition-all appearance-none text-gray-400 bg-white">
-                  <option value="">Gender</option>
-                  <option value="male">Male</option>
-                  <option value="female">Female</option>
-                  <option value="other">Other</option>
-                </select>
-                <div class="absolute inset-y-0 right-3 flex items-center pointer-events-none">
-                  <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path d="M19 9l-7 7-7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                </div>
-              </div>
-            </div>
-          </div>
-
           <div class="space-y-1">
             <label for="registerEmail" class="block text-sm font-medium text-gray-600 ml-1">Email</label>
             <input id="registerEmail" type="email" placeholder="Email" required class="w-full px-4 py-3 rounded-xl border border-gray-200 outline-none focus:ring-2 focus:ring-[#76948f]/20 focus:border-[#76948f] transition-all placeholder:text-gray-300">

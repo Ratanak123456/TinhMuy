@@ -78,3 +78,28 @@
     @apply font-sans;
   }
 }
+
+/* Add these styles */
+#profileDropdown {
+    animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Smooth transitions for user profile */
+#userProfile, #userProfileMobile {
+    transition: opacity 0.3s ease;
+}
+
+/* Add to your input.css or profile.css */
+@keyframes fade-in {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+    animation: fade-in 0.3s ease-out;
+}

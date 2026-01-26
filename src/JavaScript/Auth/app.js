@@ -31,7 +31,6 @@ class AuthApp {
 
         document.getElementById('backToHome').addEventListener('click', (e) => {
             e.preventDefault();
-            // Redirect to home page (go up from src/pages/auth.html to project root)
             window.location.href = '../../index.html';
         });
 
@@ -58,7 +57,6 @@ class AuthApp {
 
         document.getElementById('backToHome').addEventListener('click', (e) => {
             e.preventDefault();
-            // Redirect to home page (go up from src/pages/auth.html to project root)
             window.location.href = '../../index.html';
         });
 
@@ -97,7 +95,7 @@ class AuthApp {
             const userCredential = await signInWithEmailAndPassword(auth, email, password);
             const user = userCredential.user;
             
-            this.showSuccess(`Welcome back, ${user.email}!`);
+            this.showSuccess(`Welcome back!`);
             // Redirect to home page after successful login
             setTimeout(() => {
                 window.location.href = '../../index.html';
@@ -116,16 +114,10 @@ class AuthApp {
         const email = document.getElementById('registerEmail').value;
         const password = document.getElementById('registerPassword').value;
         const confirmPassword = document.getElementById('confirmPassword').value;
-        const username = document.getElementById('username').value;
         const termsAccepted = document.getElementById('terms').checked;
         const registerButton = document.getElementById('registerButton');
 
         // Validation
-        if (!username) {
-            this.showError('Please enter a username');
-            return;
-        }
-
         if (!this.validateEmail(email)) {
             this.showError('Please enter a valid email address');
             return;
@@ -153,14 +145,11 @@ class AuthApp {
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
             const user = userCredential.user;
             
-            // Here you could save additional user data (username, gender) to Firestore
-            // await this.saveUserProfile(user.uid, { username, gender: document.getElementById('gender').value });
+            this.showSuccess(`Account created successfully!`);
             
-            this.showSuccess(`Account created successfully! Welcome ${username}`);
-            
-            // Optional: Switch to login page after successful registration
+            // Redirect to home page after successful registration
             setTimeout(() => {
-                this.loadLoginPage();
+                window.location.href = '../../index.html';
             }, 1500);
             
         } catch (error) {
