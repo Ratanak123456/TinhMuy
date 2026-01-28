@@ -9,7 +9,7 @@ export const registerTemplate = `
   <div class="flex-1 flex flex-col lg:flex-row items-center justify-center gap-12 max-w-7xl mx-auto w-full py-8">
     <aside class="hidden lg:flex flex-1 items-center justify-center h-full">
       <figure class="h-full flex items-center justify-center">
-        <img src="../../asset/signup.svg" alt="Register Illustration" class="max-h-150 w-auto object-contain rounded-2xl shadow-2xl dark:shadow-primary-900/50 h-full">
+        <img src="/asset/signup.svg" alt="Register Illustration" class="max-h-150 w-auto object-contain rounded-2xl shadow-2xl dark:shadow-primary-900/50 h-full">
       </figure>
     </aside>
     
