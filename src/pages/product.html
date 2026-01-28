@@ -477,14 +477,14 @@
           <!-- Pagination -->
           <div class="flex justify-center items-center space-x-2 py-6">
             <button id="prev-page"
-              class="w-10 h-10 text-white rounded-[10px] bg-primary-200 flex items-center justify-center hover:bg-primary-300 disabled:opacity-50 disabled:cursor-not-allowed">
+              class="w-10 h-10 text-white rounded-[10px] bg-primary-400 flex items-center justify-center hover:bg-primary-300 disabled:opacity-50 disabled:cursor-not-allowed">
               <i class="fa-solid fa-angle-left"></i>
             </button>
             <div id="page-numbers" class="flex items-center space-x-2">
               <!-- Page numbers will be generated here -->
             </div>
             <button id="next-page"
-              class="w-10 h-10 text-white rounded-[10px] bg-primary-200 flex items-center justify-center hover:bg-primary-300 disabled:opacity-50 disabled:cursor-not-allowed">
+              class="w-10 h-10 text-white rounded-[10px] bg-primary-400 flex items-center justify-center hover:bg-primary-300 disabled:opacity-50 disabled:cursor-not-allowed">
               <i class="fa-solid fa-angle-right"></i>
             </button>
           </div>
@@ -654,6 +654,14 @@
         buttons.forEach((b) => b.classList.remove("active"));
         btn.classList.add("active");
       });
+    });
+  </script>
+    <script src="../JavaScript/dakrMode.js"></script>
+    <script type="module">
+    import { initAuthState } from "../JavaScript/Auth/auth-state.js";
+
+    document.addEventListener("DOMContentLoaded", () => {
+      initAuthState();
     });
   </script>
   <!-- Add this line AFTER your existing scripts -->

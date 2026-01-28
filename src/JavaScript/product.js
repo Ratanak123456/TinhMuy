@@ -74,6 +74,7 @@ function createProductCard(product, brand) {
 
   return `
     <section class="animate-fadeIn" data-aos="fade-up">
+    <a href="./productDetail.html?productId=${product.id}">
       <div class="group flex flex-col items-start rounded-[20px] lg:m-0 h-full bg-white dark:bg-gray-800 shadow-sm hover:shadow-lg transition-all duration-300">
         <div class="relative bg-primary-300 rounded-[13px] w-full aspect-square mb-4 overflow-hidden">
           <img
@@ -132,7 +133,8 @@ function createProductCard(product, brand) {
             </button>
           </div>
         </div>
-      </div>
+      </div>    </a>
+
     </section>
   `;
 }
