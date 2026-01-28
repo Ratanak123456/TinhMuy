@@ -1,167 +1,204 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!doctype html>
+<html lang="en" id="main-html" class="">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Checkout page</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../output.css">
-    <!-- meta data  -->
-     <meta name="description" content="Fast, secure checkout in just a few clicks. Accept all major credit cards, PayPal, and digital wallets. Complete your order now." />
-     <meta name="keywords" content="secure checkout, online checkout, safe payment, complete order, checkout process, secure payment, SSL checkout, buy now, purchase online, payment page" />
-     <meta property="og:title" content="page Checkout " />
-     <meta property="og:url" content="http://127.0.0.1:5500/src/pages/checkout.html" />
-      <!-- fav icon -->
-       <link rel="shortcut icon" href="/asset/logo.png" type="image/x-icon">
+    <script src="../JavaScript/darkMode.js"></script>
 
+    <!-- meta data  -->
+    <meta
+      name="description"
+      content="Fast, secure checkout in just a few clicks. Accept all major credit cards, PayPal, and digital wallets. Complete your order now."
+    />
+    <meta
+      name="keywords"
+      content="secure checkout, online checkout, safe payment, complete order, checkout process, secure payment, SSL checkout, buy now, purchase online, payment page"
+    />
+    <meta property="og:title" content="page Checkout " />
+    <meta
+      property="og:url"
+      content="http://127.0.0.1:5500/src/pages/checkout.html"
+    />
+    <!-- fav icon -->
+    <link rel="shortcut icon" href="/asset/logo.png" type="image/x-icon" />
 
     <style>
-        /* Custom responsive adjustments */
-        @media (max-width: 640px) {
-            .payment-grid {
-                grid-template-columns: 1fr;
-            }
+      /* Custom responsive adjustments */
+      @media (max-width: 640px) {
+        .payment-grid {
+          grid-template-columns: 1fr;
         }
-        
-        @media (min-width: 641px) and (max-width: 1024px) {
-            .payment-grid {
-                grid-template-columns: 1fr;
-            }
+      }
+
+      @media (min-width: 641px) and (max-width: 1024px) {
+        .payment-grid {
+          grid-template-columns: 1fr;
         }
-        
-        @media (min-width: 1025px) {
-            .payment-grid {
-                grid-template-columns: 1fr 1fr;
-            }
+      }
+
+      @media (min-width: 1025px) {
+        .payment-grid {
+          grid-template-columns: 1fr 1fr;
         }
+      }
     </style>
-</head>
-<body class="bg-gray-100">
+  </head>
+  <body class="bg-page-bg dark:bg-dark-page-bg min-h-screen transition-colors duration-300">
     <!-- Payment Section -->
     <section class="py-8 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6">
-        <h3 class="text-2xl sm:text-3xl md:text-4xl font-bold text-[#5a7370] text-center mb-4 sm:mb-6">
-            Payment
-        </h3>
-        
-        <div class="max-w-4xl mx-auto bg-white shadow-xl rounded-2xl overflow-hidden payment-grid grid">
-            
-            <!-- Checkout Form -->
-            <div class="p-4 sm:p-6 md:p-8">
-                <p class="font-bold text-[#5a7370] mb-3 text-base sm:text-lg">
-                    Credit or Debit Card
-                </p>
-                <p class="text-[#5a7370] mb-4 sm:mb-6 text-sm sm:text-base">
-                    Enter your card details below.
-                </p>
-                
-                <form class="space-y-4 sm:space-y-5">
-                    <!-- Name on Card -->
-                    <div>
-                        <label class="block mb-1 sm:mb-2 text-xs sm:text-sm font-semibold text-[#5a7370]">
-                            Name on Card
-                        </label>
-                        <input 
-                            type="text" 
-                            placeholder="John Doe" 
-                            class="w-full border px-3 sm:px-4 py-2 sm:py-3 rounded-lg text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-indigo-500" 
-                        />
-                    </div>
-                    
-                    <!-- Card Number -->
-                    <div>
-                        <label class="block font-semibold mb-1 sm:mb-2 text-xs sm:text-sm text-[#5a7370]">
-                            Card Number
-                        </label>
-                        <input 
-                            type="text" 
-                            placeholder="1234 5678 9012 3456" 
-                            class="w-full border px-3 sm:px-4 py-2 sm:py-3 rounded-lg text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-indigo-500" 
-                        />
-                    </div>
-                    
-                    <!-- Expiry Date & CVC -->
-                    <div class="flex gap-3 sm:gap-4">
-                        <div class="w-1/2">
-                            <label class="block mb-1 sm:mb-2 text-xs sm:text-sm font-semibold text-[#5a7370]">
-                                Expiry Date
-                            </label>
-                            <input 
-                                type="text" 
-                                placeholder="MM/YY" 
-                                class="w-full border px-3 sm:px-4 py-2 sm:py-3 rounded-lg text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-indigo-500" 
-                            />
-                        </div>
-                        <div class="w-1/2">
-                            <label class="block mb-1 sm:mb-2 text-xs sm:text-sm font-semibold text-[#5a7370]">
-                                CVC
-                            </label>
-                            <input 
-                                type="text" 
-                                placeholder="123" 
-                                class="w-full border px-3 sm:px-4 py-2 sm:py-3 rounded-lg text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-indigo-500" 
-                            />
-                        </div>
-                    </div>
-                    
-                    <!-- Bank Selection -->
-                    <div>
-                        <label class="block mb-2 sm:mb-3 text-xs sm:text-sm font-semibold text-[#5a7370]">
-                            Please choose the bank
-                        </label>
-                        <div class="flex border border-amber-500 gap-3 sm:gap-6 rounded-2xl p-3 sm:p-4 items-center">
-                            <img 
-                                class="h-12 sm:h-16 rounded-lg shrink-0" 
-                                src="https://www.sbilhbank.com.kh/wp-content/uploads/2022/10/Bakong-Banner.png" 
-                                alt="Bakong"
-                            />
-                            <label class="flex items-center gap-2 text-xs sm:text-sm select-none flex-1">
-                                Bakong Bank
-                                <input type="radio" name="radio-group-1" class="ml-auto" /> 
-                            </label>
-                        </div>
-                    </div>
-                    
-                    <!-- We Accept Payment Methods -->
-                    <div class="mt-4 sm:mt-6">
-                        <div class="text-center mb-2 sm:mb-3">
-                            <span class="text-xs sm:text-sm md:text-base font-bold text-gray-700 uppercase">
-                                WE ACCEPT
-                            </span>
-                        </div>
-                        <img 
-                            src="https://zandokh.com/image/catalog/logo/web-footer/We-accept-payment–for-web-footer-2.png" 
-                            alt="we accept payments ABA Pay, Credit/Debit Card, Wing, JCB, Bank Transfer, Cash on delivery and Chip Mong Bank." 
-                            class="w-full max-w-md mx-auto"
-                        />
-                    </div>
-                    
-                    <!-- Pay Now Button -->
-                    <div class="mt-6 sm:mt-8">
-                        <a href="/index.html">
-                          <button 
-                            type="button"
-                            class="w-full bg-[#5a7370] hover:bg-[#4a6360] text-white font-semibold py-3 sm:py-4 px-6 rounded-lg transition duration-200 ease-in-out transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-[#5a7370] focus:ring-offset-2 text-sm sm:text-base"
-                        >
-                            Pay Now
-                        </button></a>
-                    </div>
-                </form>
+      <h3
+        class="text-2xl sm:text-3xl md:text-4xl font-bold text-secondary-700 dark:text-secondary-100 text-center mb-4 sm:mb-6"
+      >
+        Payment
+      </h3>
+
+      <div
+        class="max-w-4xl mx-auto bg-white dark:bg-dark-nav-bg shadow-xl dark:shadow-primary-900/30 rounded-2xl overflow-hidden payment-grid grid transition-colors duration-300"
+      >
+        <!-- Checkout Form -->
+        <div class="p-4 sm:p-6 md:p-8">
+          <p class="font-bold text-secondary-700 dark:text-secondary-100 mb-3 text-base sm:text-lg">
+            Credit or Debit Card
+          </p>
+          <p class="text-secondary-600 dark:text-secondary-300 mb-4 sm:mb-6 text-sm sm:text-base">
+            Enter your card details below.
+          </p>
+
+          <form class="space-y-4 sm:space-y-5">
+            <!-- Name on Card -->
+            <div>
+              <label
+                class="block mb-1 sm:mb-2 text-xs sm:text-sm font-semibold text-secondary-800 dark:text-secondary-100"
+              >
+                Name on Card
+              </label>
+              <input
+                type="text"
+                placeholder="John Doe"
+                class="w-full border border-primary-200 dark:border-secondary-600 bg-white dark:bg-primary-800 px-3 sm:px-4 py-2 sm:py-3 rounded-lg text-sm sm:text-base text-primary-900 dark:text-white placeholder:text-primary-400 dark:placeholder:text-secondary-400 focus:outline-none focus:ring-2 focus:ring-secondary-light/40 dark:focus:ring-secondary-dark/40 focus:border-secondary-600 dark:focus:border-secondary-400 transition-all duration-200"
+              />
             </div>
-            
-            <!-- QR Code Section -->
-            <div class="bg-gray-50 p-4 sm:p-6 md:p-8 border-t md:border-t-0 md:border-l border-gray-200 flex justify-center items-center">
-                <div class="w-full max-w-xs">
-                    <img 
-                        class="w-full h-auto rounded-lg shadow-md" 
-                        src="/image/Khqr.jpg" 
-                        alt="KHQR"
-                    />
-                    <p class="text-center mt-3 sm:mt-4 text-xs sm:text-sm text-gray-600">
-                        Scan to pay with KHQR
-                    </p>
-                </div>
+
+            <!-- Card Number -->
+            <div>
+              <label
+                class="block font-semibold mb-1 sm:mb-2 text-xs sm:text-sm text-secondary-800 dark:text-secondary-100"
+              >
+                Card Number
+              </label>
+              <input
+                type="text"
+                placeholder="1234 5678 9012 3456"
+                class="w-full border border-primary-200 dark:border-secondary-600 bg-white dark:bg-primary-800 px-3 sm:px-4 py-2 sm:py-3 rounded-lg text-sm sm:text-base text-primary-900 dark:text-white placeholder:text-primary-400 dark:placeholder:text-secondary-400 focus:outline-none focus:ring-2 focus:ring-secondary-light/40 dark:focus:ring-secondary-dark/40 focus:border-secondary-600 dark:focus:border-secondary-400 transition-all duration-200"
+              />
             </div>
+
+            <!-- Expiry Date & CVC -->
+            <div class="flex gap-3 sm:gap-4">
+              <div class="w-1/2">
+                <label
+                  class="block mb-1 sm:mb-2 text-xs sm:text-sm font-semibold text-secondary-800 dark:text-secondary-100"
+                >
+                  Expiry Date
+                </label>
+                <input
+                  type="text"
+                  placeholder="MM/YY"
+                  class="w-full border border-primary-200 dark:border-secondary-600 bg-white dark:bg-primary-800 px-3 sm:px-4 py-2 sm:py-3 rounded-lg text-sm sm:text-base text-primary-900 dark:text-white placeholder:text-primary-400 dark:placeholder:text-secondary-400 focus:outline-none focus:ring-2 focus:ring-secondary-light/40 dark:focus:ring-secondary-dark/40 focus:border-secondary-600 dark:focus:border-secondary-400 transition-all duration-200"
+                />
+              </div>
+              <div class="w-1/2">
+                <label
+                  class="block mb-1 sm:mb-2 text-xs sm:text-sm font-semibold text-secondary-800 dark:text-secondary-100"
+                >
+                  CVC
+                </label>
+                <input
+                  type="text"
+                  placeholder="123"
+                  class="w-full border border-primary-200 dark:border-secondary-600 bg-white dark:bg-primary-800 px-3 sm:px-4 py-2 sm:py-3 rounded-lg text-sm sm:text-base text-primary-900 dark:text-white placeholder:text-primary-400 dark:placeholder:text-secondary-400 focus:outline-none focus:ring-2 focus:ring-secondary-light/40 dark:focus:ring-secondary-dark/40 focus:border-secondary-600 dark:focus:border-secondary-400 transition-all duration-200"
+                />
+              </div>
+            </div>
+
+            <!-- Bank Selection -->
+            <div>
+              <label
+                class="block mb-2 sm:mb-3 text-xs sm:text-sm font-semibold text-secondary-800 dark:text-secondary-100"
+              >
+                Please choose the bank
+              </label>
+              <div
+                class="flex border border-accent-brand dark:border-accent-500 gap-3 sm:gap-6 rounded-2xl p-3 sm:p-4 items-center bg-white dark:bg-primary-800 transition-colors duration-200"
+              >
+                <img
+                  class="h-12 sm:h-16 rounded-lg shrink-0"
+                  src="https://www.sbilhbank.com.kh/wp-content/uploads/2022/10/Bakong-Banner.png"
+                  alt="Bakong"
+                />
+                <label
+                  class="flex items-center gap-2 text-xs sm:text-sm select-none flex-1 text-secondary-800 dark:text-secondary-100"
+                >
+                  Bakong Bank
+                  <input 
+                    type="radio" 
+                    name="radio-group-1" 
+                    class="ml-auto text-secondary-600 dark:text-secondary-400 focus:ring-secondary-light/50 dark:focus:ring-secondary-dark/50" 
+                  />
+                </label>
+              </div>
+            </div>
+
+            <!-- We Accept Payment Methods -->
+            <div class="mt-4 sm:mt-6">
+              <div class="text-center mb-2 sm:mb-3">
+                <span
+                  class="text-xs sm:text-sm md:text-base font-bold text-secondary-600 dark:text-secondary-300 uppercase"
+                >
+                  WE ACCEPT
+                </span>
+              </div>
+              <img
+                src="https://zandokh.com/image/catalog/logo/web-footer/We-accept-payment–for-web-footer-2.png"
+                alt="we accept payments ABA Pay, Credit/Debit Card, Wing, JCB, Bank Transfer, Cash on delivery and Chip Mong Bank."
+                class="w-full max-w-md mx-auto"
+              />
+            </div>
+
+            <!-- Pay Now Button -->
+            <div class="mt-6 sm:mt-8">
+              <a href="/index.html">
+                <button
+                  type="button"
+                  class="w-full bg-secondary-600 hover:bg-secondary-700 dark:bg-secondary-700 dark:hover:bg-secondary-600 text-white font-semibold py-3 sm:py-4 px-6 rounded-lg transition-all duration-200 ease-in-out transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-secondary-light/50 dark:focus:ring-secondary-dark/50 focus:ring-offset-2 dark:focus:ring-offset-primary-800 text-sm sm:text-base"
+                >
+                  Pay Now
+                </button></a
+              >
+            </div>
+          </form>
         </div>
+
+        <!-- QR Code Section -->
+        <div
+          class="bg-primary-50 dark:bg-primary-900 p-4 sm:p-6 md:p-8 border-t md:border-t-0 md:border-l border-primary-200 dark:border-secondary-700 flex justify-center items-center transition-colors duration-300"
+        >
+          <div class="w-full max-w-xs">
+            <img
+              class="w-full h-auto rounded-lg shadow-md dark:shadow-primary-900/50"
+              src="/image/Khqr.jpg"
+              alt="KHQR"
+            />
+            <p
+              class="text-center mt-3 sm:mt-4 text-xs sm:text-sm text-secondary-600 dark:text-secondary-300"
+            >
+              Scan to pay with KHQR
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
-</body>
+  </body>
 </html>
