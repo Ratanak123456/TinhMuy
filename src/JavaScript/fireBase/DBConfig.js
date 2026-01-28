@@ -1,9 +1,10 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
 import { 
     getAuth, 
+    GoogleAuthProvider,
+    signInWithPopup,
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
-    sendPasswordResetEmail,
     signOut 
 } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-auth.js";
 
@@ -18,15 +19,16 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
+const provider = new GoogleAuthProvider();
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+auth.languageCode = 'it';
 
-// Export everything
+// Export everything except sendPasswordResetEmail
 export { 
     app,
     auth,
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
-    sendPasswordResetEmail,
     signOut
 };

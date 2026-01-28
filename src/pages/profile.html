@@ -16,21 +16,31 @@
       }
     </style>
   </head>
-  <body class="bg-[#f3f5f4] min-h-screen">
+  <body
+    class="bg-secondary-100 dark:bg-dark-page-bg min-h-screen transition-colors duration-300"
+  >
     <!-- Simple Header with Back Button -->
-    <header class="bg-white shadow-sm">
-      <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-        <button 
-          onclick="window.location.href='../../index.html'"
-          class="flex items-center text-gray-600 hover:text-gray-900 transition-colors"
+    <header
+      class="bg-white dark:bg-dark-nav-bg shadow-sm transition-colors duration-300"
+    >
+      <div
+        class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between"
+      >
+        <button
+          onclick="window.location.href = '../../index.html'"
+          class="flex items-center text-primary-700 dark:text-primary-300 hover:text-primary-900 dark:hover:text-primary-100 transition-colors"
         >
           <i class="fa-solid fa-arrow-left mr-2"></i>
           Back to Home
         </button>
-        
-        <h1 class="text-xl font-semibold text-[#5a706c]">My Profile</h1>
-        
-        <button 
+
+        <h1
+          class="text-xl font-semibold text-primary-800 dark:text-primary-200"
+        >
+          My Profile
+        </h1>
+
+        <button
           id="logoutBtn"
           class="px-4 py-2 bg-red-600 text-white text-sm rounded-lg hover:bg-red-700 transition-colors"
         >
@@ -39,18 +49,31 @@
       </div>
     </header>
 
-    <div class="min-h-screen bg-page-bg p-4 md:p-12 font-sans">
+    <div
+      class="min-h-screen bg-page-bg dark:bg-dark-page-bg p-4 md:p-12 font-sans transition-colors duration-300"
+    >
       <!-- User Info Header -->
       <div class="max-w-6xl mx-auto mb-10">
-        <div class="bg-white rounded-2xl p-6 shadow-sm">
+        <div
+          class="bg-white dark:bg-dark-nav-bg rounded-2xl p-6 shadow-sm transition-colors duration-300"
+        >
           <div class="flex items-center gap-4">
-            <div class="w-16 h-16 rounded-full bg-secondary-600 flex items-center justify-center text-white">
+            <div
+              class="w-16 h-16 rounded-full bg-secondary-600 dark:bg-secondary-700 flex items-center justify-center text-white"
+            >
               <i class="fa-solid fa-user text-2xl"></i>
             </div>
             <div>
-              <h2 class="text-xl font-bold text-gray-800" id="userName">User</h2>
-              <p class="text-gray-600" id="userEmail">user@example.com</p>
-              <p class="text-sm text-gray-500 mt-1">
+              <h2
+                class="text-xl font-bold text-primary-900 dark:text-primary-100"
+                id="userName"
+              >
+                User
+              </h2>
+              <p class="text-primary-600 dark:text-primary-300" id="userEmail">
+                user@example.com
+              </p>
+              <p class="text-sm text-primary-500 dark:text-primary-400 mt-1">
                 Member since <span id="accountDate">2024</span>
               </p>
             </div>
@@ -60,10 +83,10 @@
 
       <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-8">
         <aside
-          class="w-full md:w-64 bg-primary-600 rounded-3xl p-6 flex flex-col gap-2 h-fit"
+          class="w-full md:w-64 bg-primary-600 dark:bg-primary-800 rounded-3xl p-6 flex flex-col gap-2 h-fit transition-colors duration-300"
         >
           <button
-            class="flex items-center gap-3 w-full p-3 text-white bg-white/10 rounded-xl transition-colors"
+            class="flex items-center gap-3 w-full p-3 text-white bg-white/10 dark:bg-white/5 rounded-xl transition-colors"
           >
             <i class="fa-regular fa-user"></i>
             <span class="font-medium">Profile</span>
@@ -101,26 +124,10 @@
           </button>
         </aside>
 
-        <main class="flex-1 bg-primary-600 rounded-3xl p-8 text-white">
+        <main
+          class="flex-1 bg-primary-600 dark:bg-primary-800 rounded-3xl p-8 text-white transition-colors duration-300"
+        >
           <h2 class="text-2xl font-bold mb-8">Personal Info</h2>
-
-          <div class="flex items-center gap-6 mb-10">
-            <div class="relative group">
-              <img
-                src="https://via.placeholder.com/100"
-                alt="Avatar"
-                class="w-24 h-24 rounded-full border-4 border-white/20 object-cover"
-              />
-            </div>
-            <div class="flex gap-6 text-sm">
-              <button class="hover:underline opacity-80 transition-opacity">
-                Upload
-              </button>
-              <button class="hover:underline opacity-80 transition-opacity">
-                Remove
-              </button>
-            </div>
-          </div>
 
           <form id="profileForm" class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div class="flex flex-col gap-2">
@@ -129,7 +136,7 @@
                 type="text"
                 id="firstName"
                 value="Lame"
-                class="w-full p-3 rounded-full bg-white text-gray-800 outline-none focus:ring-2 ring-accent-brand"
+                class="w-full p-3 rounded-full bg-white dark:bg-primary-900 text-primary-900 dark:text-primary-100 outline-none focus:ring-2 ring-accent-brand transition-colors duration-300"
               />
             </div>
             <div class="flex flex-col gap-2">
@@ -138,7 +145,7 @@
                 type="text"
                 id="lastName"
                 value="Izanaki"
-                class="w-full p-3 rounded-full bg-white text-gray-800 outline-none"
+                class="w-full p-3 rounded-full bg-white dark:bg-primary-900 text-primary-900 dark:text-primary-100 outline-none transition-colors duration-300"
               />
             </div>
             <div class="flex flex-col gap-2">
@@ -147,7 +154,7 @@
                 type="text"
                 id="nickname"
                 placeholder="Optional..."
-                class="w-full p-3 rounded-full bg-white text-gray-800 outline-none"
+                class="w-full p-3 rounded-full bg-white dark:bg-primary-900 text-primary-900 dark:text-primary-100 outline-none placeholder-primary-400 dark:placeholder-primary-500 transition-colors duration-300"
               />
             </div>
 
@@ -157,10 +164,10 @@
                 <input
                   type="date"
                   id="dob"
-                  class="w-full p-3 rounded-full bg-white text-gray-800 outline-none"
+                  class="w-full p-3 rounded-full bg-white dark:bg-primary-900 text-primary-900 dark:text-primary-100 outline-none transition-colors duration-300"
                 />
                 <i
-                  class="fa-regular fa-calendar absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none"
+                  class="fa-regular fa-calendar absolute right-4 top-1/2 -translate-y-1/2 text-primary-500 dark:text-primary-400 pointer-events-none"
                 ></i>
               </div>
             </div>
@@ -168,7 +175,7 @@
               <label class="text-sm opacity-80 ml-1">Gender</label>
               <select
                 id="gender"
-                class="w-full p-3 rounded-full bg-white text-gray-800 outline-none appearance-none"
+                class="w-full p-3 rounded-full bg-white dark:bg-primary-900 text-primary-900 dark:text-primary-100 outline-none appearance-none transition-colors duration-300"
               >
                 <option value="male">Male</option>
                 <option value="female">Female</option>
@@ -179,7 +186,7 @@
               <label class="text-sm opacity-80 ml-1">Country</label>
               <select
                 id="country"
-                class="w-full p-3 rounded-full bg-white text-gray-800 outline-none appearance-none"
+                class="w-full p-3 rounded-full bg-white dark:bg-primary-900 text-primary-900 dark:text-primary-100 outline-none appearance-none transition-colors duration-300"
               >
                 <option value="cambodia">Cambodia</option>
                 <option value="usa">USA</option>
@@ -192,7 +199,7 @@
               <input
                 type="email"
                 id="email"
-                class="w-full p-3 rounded-full bg-white text-gray-800 outline-none"
+                class="w-full p-3 rounded-full bg-white dark:bg-primary-900 text-primary-900 dark:text-primary-100 outline-none transition-colors duration-300"
                 readonly
               />
             </div>
@@ -202,7 +209,7 @@
                 type="tel"
                 id="phone"
                 value="+855 017490085"
-                class="w-full p-3 rounded-full bg-white text-gray-800 outline-none"
+                class="w-full p-3 rounded-full bg-white dark:bg-primary-900 text-primary-900 dark:text-primary-100 outline-none transition-colors duration-300"
               />
             </div>
 

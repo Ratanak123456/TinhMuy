@@ -1,6 +1,6 @@
 import { loginTemplate } from './login.js';
 import { registerTemplate } from './register.js';
-import { auth, signInWithEmailAndPassword, createUserWithEmailAndPassword, sendPasswordResetEmail } from '../fireBase/DBConfig.js';
+import { auth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from '../fireBase/DBConfig.js';
 
 class AuthApp {
     constructor() {
@@ -37,11 +37,6 @@ class AuthApp {
         // Login form
         const loginForm = document.getElementById('loginForm');
         loginForm.addEventListener('submit', (e) => this.handleLogin(e));
-
-        // Forgot password
-        document.getElementById('forgotPassword').addEventListener('click', () => {
-            this.handleForgotPassword();
-        });
 
         // Google login (placeholder)
         document.getElementById('googleLogin').addEventListener('click', () => {
@@ -156,24 +151,6 @@ class AuthApp {
             this.handleAuthError(error);
         } finally {
             this.setButtonLoading(registerButton, false, 'Register');
-        }
-    }
-
-    async handleForgotPassword() {
-        const email = prompt('Please enter your email address to reset your password:');
-        
-        if (!email) return;
-        
-        if (!this.validateEmail(email)) {
-            this.showError('Please enter a valid email address');
-            return;
-        }
-
-        try {
-            await sendPasswordResetEmail(auth, email);
-            alert(`Password reset email sent to ${email}. Please check your inbox.`);
-        } catch (error) {
-            this.handleAuthError(error);
         }
     }
 
