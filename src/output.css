@@ -27,8 +27,7 @@
     --color-orange-800: oklch(47% 0.157 37.304);
     --color-orange-900: oklch(40.8% 0.123 38.172);
     --color-orange-950: oklch(26.6% 0.079 36.259);
-    --color-amber-100: oklch(96.2% 0.059 95.617);
-    --color-amber-800: oklch(47.3% 0.137 46.201);
+    --color-amber-600: oklch(66.6% 0.179 58.318);
     --color-yellow-50: oklch(98.7% 0.026 102.212);
     --color-yellow-100: oklch(97.3% 0.071 103.193);
     --color-yellow-200: oklch(94.5% 0.129 101.54);
@@ -2367,9 +2366,6 @@
   .top-1\/2 {
     top: calc(1/2 * 100%);
   }
-  .top-2 {
-    top: calc(var(--spacing) * 2);
-  }
   .top-2\.5 {
     top: calc(var(--spacing) * 2.5);
   }
@@ -3475,12 +3471,6 @@
   .bg-gray-300 {
     background-color: var(--color-gray-300);
   }
-  .bg-gray-400 {
-    background-color: var(--color-gray-400);
-  }
-  .bg-gray-900 {
-    background-color: var(--color-gray-900);
-  }
   .bg-gray-900\/50 {
     background-color: color-mix(in srgb, oklch(21% 0.034 264.665) 50%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
@@ -3576,9 +3566,6 @@
   }
   .bg-yellow-600 {
     background-color: var(--color-yellow-600);
-  }
-  .mask-repeat {
-    mask-repeat: repeat;
   }
   .stroke-secondary-600 {
     stroke: var(--color-secondary-600);
@@ -3815,11 +3802,8 @@
   .text-accent-brand {
     color: var(--color-accent-brand);
   }
-  .text-blue-50 {
-    color: var(--color-blue-50);
-  }
-  .text-blue-500 {
-    color: var(--color-blue-500);
+  .text-amber-600 {
+    color: var(--color-amber-600);
   }
   .text-blue-600 {
     color: var(--color-blue-600);
