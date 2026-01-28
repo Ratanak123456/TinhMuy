@@ -8,6 +8,7 @@
 @import "flowbite/src/themes/default";
 @source "../node_modules/flowbite";
 
+
 /* Add DaisyUI plugin */
 @plugin "daisyui";
 
