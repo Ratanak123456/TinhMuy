@@ -1,11 +1,1248 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Products</title>
-</head>
-<body>
-    
-</body>
+    <link rel="stylesheet" href="../output.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+
+    <style>
+      input[type="range"]::-webkit-slider-thumb {
+        appearance: none;
+        width: 18px;
+        height: 18px;
+        background: black;
+        border-radius: 9999px;
+        cursor: pointer;
+      }
+
+      input[type="range"]::-moz-range-thumb {
+        width: 18px;
+        height: 18px;
+        background: black;
+        border-radius: 9999px;
+        cursor: pointer;
+      }
+
+      .color {
+        position: relative;
+      }
+
+      .color.selected::after {
+        content: "✓";
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+      }
+      .size-btn {
+        padding: 0.5rem 1.25rem;
+        border-radius: 9999px;
+        background: #f3f4f6;
+        color: #111827;
+        font-size: 14px;
+        transition: 0.2s;
+      }
+
+      .size-btn.active {
+        background: black;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- header -->
+    <header
+      class="sticky top-0 z-50 bg-page-bg shadow-sm transition-colors duration-300 dark:bg-dark-nav-bg dark:shadow-none"
+    >
+      <nav
+        class="flex items-center justify-between px-4 sm:px-6 lg:px-8 xl:px-12 py-3"
+      >
+        <!-- Logo -->
+        <div class="shrink-0">
+          <a href="/" aria-label="Go to homepage">
+            <img
+              src="../../asset/logo.png"
+              alt="Tinh Muy Logo"
+              class="h-10 sm:h-12 md:h-14 w-auto object-contain dark:brightness-110"
+              loading="lazy"
+            />
+          </a>
+        </div>
+
+        <!-- Desktop Navigation Menu -->
+        <ul
+          class="hidden lg:flex items-center space-x-6 xl:space-x-8 text-xs sm:text-[13px] font-bold tracking-[0.15em] text-primary-600 dark:text-secondary-400"
+        >
+          <li>
+            <a
+              href="#"
+              class="hover:text-secondary-600 transition-colors px-2 py-1 rounded"
+              >HOME</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="hover:opacity-70 transition-opacity px-2 py-1 rounded"
+              >PRODUCT</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="hover:opacity-70 transition-opacity px-2 py-1 rounded"
+              >ABOUT</a
+            >
+          </li>
+        </ul>
+
+        <!-- Desktop User Actions -->
+        <section
+          class="hidden lg:flex items-center space-x-4 xl:space-x-6"
+          aria-label="User Actions"
+        >
+          <div
+            class="flex items-center space-x-4 xl:space-x-5 text-secondary-600 dark:text-secondary-400"
+          >
+            <button
+              aria-label="Shipping status"
+              class="hover:scale-110 transition-transform p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"
+                />
+                <path d="M15 18H9" />
+                <path d="M19 18h2a1 1 0 0 0 1-1v-5l-4-4h-3v10a1 1 0 0 0 1 1Z" />
+                <circle cx="7" cy="18" r="2" />
+                <circle cx="17" cy="18" r="2" />
+              </svg>
+            </button>
+            <button
+              aria-label="Wishlist"
+              class="hover:scale-110 transition-transform p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+                <path
+                  d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                />
+                <path d="M9 12h6" />
+                <path d="M9 16h6" />
+                <path d="M9 8h6" />
+              </svg>
+            </button>
+            <button
+              aria-label="Shopping Cart"
+              class="hover:scale-110 transition-transform relative p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="8" cy="21" r="1" />
+                <circle cx="19" cy="21" r="1" />
+                <path
+                  d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"
+                />
+              </svg>
+              <span
+                class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center"
+              >
+                3
+              </span>
+            </button>
+          </div>
+
+          <span
+            class="h-6 w-px bg-secondary-600/30 dark:bg-secondary-400/20"
+            aria-hidden="true"
+          ></span>
+
+          <div class="flex items-center space-x-3">
+            <button
+              onclick="toggleDarkMode()"
+              aria-label="Toggle Dark Mode"
+              class="p-2 rounded-md bg-secondary-600 text-white hover:bg-secondary-700 transition-colors dark:bg-secondary-800 min-h-11 min-w-11 flex items-center justify-center"
+            >
+              <svg
+                class="block dark:hidden"
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+              </svg>
+              <svg
+                class="hidden dark:block"
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="4" />
+                <path d="M12 2v2" />
+                <path d="M12 20v2" />
+                <path d="M4.93 4.93l1.41 1.41" />
+                <path d="M17.66 17.66l1.41 1.41" />
+                <path d="M2 12h2" />
+                <path d="M20 12h2" />
+                <path d="M4.93 19.07l1.41-1.41" />
+                <path d="M17.66 6.34l1.41-1.41" />
+              </svg>
+            </button>
+            <button
+              class="px-4 py-2 rounded-md bg-secondary-600 text-white text-xs font-bold tracking-wider hover:bg-secondary-700 transition-colors dark:bg-secondary-800 min-h-11"
+            >
+              LOGIN
+            </button>
+          </div>
+        </section>
+
+        <!-- Mobile Actions & Menu Button -->
+        <div class="flex items-center space-x-4 lg:hidden">
+          <!-- Mobile Icons -->
+          <div
+            class="flex items-center space-x-4 text-secondary-600 dark:text-secondary-400"
+          >
+            <button
+              aria-label="Shopping Cart"
+              class="hover:scale-110 transition-transform relative p-2"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="8" cy="21" r="1" />
+                <circle cx="19" cy="21" r="1" />
+                <path
+                  d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"
+                />
+              </svg>
+              <span
+                class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center"
+              >
+                3
+              </span>
+            </button>
+
+            <button
+              onclick="toggleDarkMode()"
+              aria-label="Toggle Dark Mode"
+              class="p-2 rounded-md bg-secondary-600 text-white hover:bg-secondary-700 transition-colors dark:bg-secondary-800"
+            >
+              <svg
+                class="block dark:hidden"
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+              </svg>
+              <svg
+                class="hidden dark:block"
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="4" />
+                <path d="M12 2v2" />
+                <path d="M12 20v2" />
+                <path d="M4.93 4.93l1.41 1.41" />
+                <path d="M17.66 17.66l1.41 1.41" />
+                <path d="M2 12h2" />
+                <path d="M20 12h2" />
+                <path d="M4.93 19.07l1.41-1.41" />
+                <path d="M17.66 6.34l1.41-1.41" />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Mobile Menu Button -->
+          <button
+            id="mobile-menu-button"
+            aria-label="Open menu"
+            class="p-2 rounded-md text-secondary-600 dark:text-secondary-400 hover:bg-secondary-100 dark:hover:bg-secondary-800 transition-colors min-h-11 min-w-11 flex items-center justify-center"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="4" x2="20" y1="12" y2="12" />
+              <line x1="4" x2="20" y1="6" y2="6" />
+              <line x1="4" x2="20" y1="18" y2="18" />
+            </svg>
+          </button>
+        </div>
+      </nav>
+
+      <!-- Mobile Menu (Hidden by default) -->
+      <div
+        id="mobile-menu"
+        class="lg:hidden hidden bg-page-bg dark:bg-dark-nav-bg border-t border-secondary-200 dark:border-secondary-800 transition-all duration-300"
+      >
+        <div class="px-4 py-6">
+          <ul class="space-y-1 text-center">
+            <li>
+              <a
+                href="#"
+                class="block py-3 px-4 text-lg font-bold tracking-wider text-primary-600 dark:text-secondary-400 hover:text-secondary-600 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors rounded-lg"
+              >
+                HOME
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block py-3 px-4 text-lg font-bold tracking-wider text-primary-600 dark:text-secondary-400 hover:text-secondary-600 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors rounded-lg"
+              >
+                PRODUCT
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block py-3 px-4 text-lg font-bold tracking-wider text-primary-600 dark:text-secondary-400 hover:text-secondary-600 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors rounded-lg"
+              >
+                ABOUT
+              </a>
+            </li>
+          </ul>
+
+          <div
+            class="mt-6 pt-6 border-t border-secondary-200 dark:border-secondary-800"
+          >
+            <div class="flex flex-col items-center space-y-4">
+              <div class="flex items-center space-x-4">
+                <button
+                  aria-label="Shipping status"
+                  class="p-3 hover:scale-110 transition-transform rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"
+                    />
+                    <path d="M15 18H9" />
+                    <path
+                      d="M19 18h2a1 1 0 0 0 1-1v-5l-4-4h-3v10a1 1 0 0 0 1 1Z"
+                    />
+                    <circle cx="7" cy="18" r="2" />
+                    <circle cx="17" cy="18" r="2" />
+                  </svg>
+                </button>
+                <button
+                  aria-label="Wishlist"
+                  class="p-3 hover:scale-110 transition-transform rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+                    <path
+                      d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                    />
+                    <path d="M9 12h6" />
+                    <path d="M9 16h6" />
+                    <path d="M9 8h6" />
+                  </svg>
+                </button>
+              </div>
+
+              <button
+                class="w-full max-w-xs px-5 py-3 rounded-md bg-secondary-600 text-white text-sm font-bold tracking-wider hover:bg-secondary-700 transition-colors dark:bg-secondary-800 min-h-11"
+              >
+                LOGIN
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="hidden lg:flex flex-wrap justify-center items-center gap-5">
+      <div
+        class="flex justify-between items-center w-[295px] bg-secondary-700 mb-4 mt-4 rounded-[10px] p-4"
+      >
+        <img
+          class="w-25 h-12"
+          src="../../image/brand/nikelogo.png"
+          alt="Nike Logo"
+        />
+        <h2 class="text-4xl font-bold text-white">NIKE</h2>
+      </div>
+      <div
+        class="flex justify-between items-center w-[295px] bg-secondary-700 mb-4 mt-4 rounded-[10px] p-4"
+      >
+        <img class="w-15 h-12" src="../../image/brand/lv.png" alt="Nike Logo" />
+        <h2 class="text-4xl font-bold text-white">LOUIS</h2>
+      </div>
+      <div
+        class="flex justify-between items-center w-[295px] bg-secondary-700 mb-4 mt-4 rounded-[10px] p-4"
+      >
+        <img class="w-20 h-12" src="../../image/brand/g.png" alt="Nike Logo" />
+        <h2 class="text-4xl font-bold text-white">GUCCI</h2>
+      </div>
+      <div
+        class="flex justify-between items-center w-[295px] bg-secondary-700 mb-4 mt-4 rounded-[10px] p-4"
+      >
+        <img class="w-25 h-12" src="../../image/brand/ad.png" alt="Nike Logo" />
+        <h2 class="text-4xl font-bold text-white">ADIDAS</h2>
+      </div>
+    </div>
+
+    <!-- main -->
+    <main>
+      <!-- Product page content -->
+      <aside class="max-w-frame mx-auto px-4 xl:px-0">
+        <!-- main that contains product details -->
+        <div class="flex md:space-x-5 items-start m-5">
+          <!-- filter -->
+          <div
+            class="hidden md:block min-w-[295px] max-w-[295px] border border-accent-500 rounded-[20px] px-5 py-5 space-y-3 md:space-y-4"
+          >
+            <!-- filter content -->
+            <div class="flex justify-between items-center">
+              <span class="font-bold text-secondary-900 text-xl"
+                ><i class="fa-solid fa-filter text-accent-500 dark:text-gray-50"></i>
+                Filter</span
+              >
+
+              <i class="fa-solid fa-arrow-down-wide-short text-accent-500 dark:text-white"></i>
+            </div>
+            <hr class="text-accent-500" />
+            <div class="flex flex-col space-y-0.5 text-black/60">
+              <a href="#" class="flex justify-between items-center py-1">
+                T-shirts
+                <i class="fa-solid fa-angle-right"></i>
+              </a>
+            </div>
+            <div class="flex flex-col space-y-0.5 text-black/60">
+              <a href="#" class="flex justify-between items-center py-1">
+                Shorts
+                <i class="fa-solid fa-angle-right"></i>
+              </a>
+            </div>
+            <div class="flex flex-col space-y-0.5 text-black/60">
+              <a href="#" class="flex justify-between items-center py-1">
+                Shirts
+                <i class="fa-solid fa-angle-right"></i>
+              </a>
+            </div>
+            <div class="flex flex-col space-y-0.5 text-black/60">
+              <a href="#" class="flex justify-between items-center py-1">
+                Hoodies
+                <i class="fa-solid fa-angle-right"></i>
+              </a>
+            </div>
+            <div class="flex flex-col space-y-0.5 text-black/60">
+              <a href="#" class="flex justify-between items-center py-1">
+                Jeans
+                <i class="fa-solid fa-angle-right"></i>
+              </a>
+            </div>
+            <hr class="text-accent-500" />
+            <div class="flex justify-between items-center">
+              <span class="font-bold text-secondary-900 text-xl"
+                ><i class="fa-solid fa-money-bill text-accent-500 dark:text-white"></i> Price</span
+              >
+              <i class="fa-solid fa-angle-down"></i>
+            </div>
+            <div class="w-60 mx-auto mt-10">
+              <div class="relative">
+                <!-- Track -->
+                <div class="h-2 bg-secondary-700 rounded-full"></div>
+
+                <!-- Min -->
+                <input
+                  type="range"
+                  min="0"
+                  max="1000"
+                  value="0"
+                  id="min"
+                  class="absolute top-0 w-full h-2 bg-transparent appearance-none pointer-events-auto"
+                />
+
+                <!-- Max -->
+                <input
+                  type="range"
+                  min="0"
+                  max="1000"
+                  value="1000"
+                  id="max"
+                  class="absolute top-0 w-full h-2 bg-transparent appearance-none pointer-events-auto"
+                />
+              </div>
+
+              <!-- Price -->
+              <div class="flex justify-between mt-3 text-sm font-semibold">
+                <span>$<span id="minVal">0</span></span>
+                <span>$<span id="maxVal">1000</span></span>
+              </div>
+            </div>
+            <!-- Color -->
+            <div class="flex justify-between items-center">
+              <span class="font-bold text-secondary-900 text-xl"
+                ><i class="fa-solid fa-fill-drip text-accent-500 dark:text-white"></i> Color</span
+              >
+              <i class="fa-solid fa-angle-down"></i>
+            </div>
+            <!-- Color options -->
+            <div class="flex flex-wrap gap-3 w-64">
+              <!-- Color item -->
+              <button
+                class="color w-10 h-10 rounded-full bg-green-500 border border-gray-400"
+              ></button>
+              <button
+                class="color w-10 h-10 rounded-full bg-red-500 border border-gray-400"
+              ></button>
+              <button
+                class="color w-10 h-10 rounded-full bg-yellow-400 border border-gray-400"
+              ></button>
+              <button
+                class="color w-10 h-10 rounded-full bg-orange-500 border border-gray-400"
+              ></button>
+              <button
+                class="color w-10 h-10 rounded-full bg-cyan-400 border border-gray-400"
+              ></button>
+
+              <button
+                class="color w-10 h-10 rounded-full bg-blue-500 border border-gray-400"
+              ></button>
+              <button
+                class="color w-10 h-10 rounded-full bg-purple-500 border border-gray-400"
+              ></button>
+              <button
+                class="color w-10 h-10 rounded-full bg-pink-500 border border-gray-400"
+              ></button>
+              <button
+                class="color w-10 h-10 rounded-full bg-white border border-gray-400"
+              ></button>
+              <button class="color w-10 h-10 rounded-full bg-black"></button>
+            </div>
+            <!-- Size -->
+            <div class="flex justify-between items-center">
+              <span class="font-bold text-secondary-900 text-xl"
+                ><i class="fa-solid fa-arrows-up-down-left-right text-accent-500 dark:text-white"></i>
+                Size</span
+              >
+              <i class="fa-light fa-angle-down"></i>
+            </div>
+            <!-- Size options -->
+            <div class="grid grid-cols-2 gap-3 w-64">
+              <button class="size-btn border border-slate-700">XX-Small</button>
+              <button class="size-btn border border-slate-700">X-Small</button>
+              <button class="size-btn border border-slate-700">Small</button>
+              <button class="size-btn border border-slate-700">Medium</button>
+              <button class="size-btn border border-slate-700">Large</button>
+              <button class="size-btn border border-slate-700">X-Large</button>
+              <button class="size-btn border border-slate-700">XX-Large</button>
+              <button class="size-btn border border-slate-700">3X-Large</button>
+              <button class="size-btn border border-slate-700">4X-Large</button>
+            </div>
+            <!-- Dress Style -->
+            <div class="flex justify-between items-center">
+              <span class="font-bold text-secondary-900 text-xl"
+                ><i class="fa-solid fa-shirt text-accent-500 dark:text-white"></i> Dress Style</span
+              >
+              <i class="fa-solid fa-angle-down"></i>
+            </div>
+            <hr class="text-accent-500" />
+            <!-- Dress Style options -->
+            <div class="flex flex-col space-y-0.5 text-black/60">
+              <a href="#" class="flex justify-between items-center py-1">
+                Casual
+                <i class="fa-solid fa-angle-right"></i>
+              </a>
+            </div>
+            <div class="flex flex-col space-y-0.5 text-black/60">
+              <a href="#" class="flex justify-between items-center py-1">
+                Formal
+                <i class="fa-solid fa-angle-right"></i>
+              </a>
+            </div>
+            <div class="flex flex-col space-y-0.5 text-black/60">
+              <a href="#" class="flex justify-between items-center py-1">
+                Party
+                <i class="fa-solid fa-angle-right"></i>
+              </a>
+            </div>
+            <div class="flex flex-col space-y-0.5 text-black/60">
+              <a href="#" class="flex justify-between items-center py-1">
+                Gym
+                <i class="fa-solid fa-angle-right"></i>
+              </a>
+            </div>
+            <hr class="text-accent-500" />
+            <button
+              class="inline-flex items-center justify-center whitespace-nowrap transition-colors text-primary-50 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-primary-foreground shadow hover:bg-primary-800 px-4 bg-primary-900 w-full rounded-full text-sm font-medium py-4 h-12"
+              type="button"
+            >
+              Apply Filter
+            </button>
+          </div>
+          <!-- product grid -->
+          <article class="flex flex-col w-full space-y-5">
+            <div
+              class="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4 lg:gap-5"
+            >
+              <section>
+                <a
+                  data-aos="zoom-out-down"
+                  href="../../index.html"
+                  class="group flex flex-col items-start rounded-[20px] lg:m-0"
+                >
+                  <!-- image wrapper -->
+                  <div
+                    class="bg-primary-300 rounded-[13px] w-full lg:max-w-auto aspect-square mb-4 overflow-hidden"
+                  >
+                    <img
+                      src="../../image/product/image.png"
+                      alt="product image"
+                      class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                    />
+                  </div>
+
+                  <!-- content (ក្រៅ overflow-hidden) -->
+                  <strong
+                    class="text-secondary-800 xl:text-xl transition-colors duration-200 group-hover:text-blue-700 group-hover:underline"
+                  >
+                    Gradient Graphic T-shirt
+                  </strong>
+                  <div class="flex items-center mt-2 mb-2">
+                    <i class="fa-solid fa-star text-accent-500"></i>
+                    <small class="ml-2 text-secondary-700 font-bold">4.8/5</small>
+                  </div>
+                  <div class="flex items-center space-x-[5px] xl:space-x-2.5">
+                    <span class="font-bold text-accent-500 text-xl"
+                      >$145</span
+                    >
+                  </div>
+                </a>
+              </section>
+              <section>
+                <a
+                  data-aos="zoom-out-down"
+                  href="../../index.html"
+                  class="group flex flex-col items-start rounded-[20px] lg:m-0"
+                >
+                  <!-- image wrapper -->
+                  <div
+                    class="bg-primary-300 rounded-[13px] w-full lg:max-w-auto aspect-square mb-4 overflow-hidden"
+                  >
+                    <img
+                      src="../../image/product/image1.png"
+                      alt="product image"
+                      class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                    />
+                  </div>
+
+                  <!-- content (ក្រៅ overflow-hidden) -->
+                  <strong
+                    class="text-secondary-800 xl:text-xl transition-colors duration-200 group-hover:text-blue-700 group-hover:underline"
+                  >
+                    Polo with Pipping
+                  </strong>
+                  <div class="flex items-center mt-2 mb-2">
+                    <i class="fa-solid fa-star text-accent-500"></i>
+                    <small class="ml-2 text-secondary-700 font-bold">3.8/5</small>
+                  </div>
+                  <div class="flex items-center space-x-[5px] xl:space-x-2.5">
+                    <span class="font-bold text-accent-500 text-xl"
+                      >$180</span
+                    >
+                  </div>
+                </a>
+              </section>
+              <section>
+                <a
+                  data-aos="zoom-out-down"
+                  href="../../index.html"
+                  class="group flex flex-col items-start rounded-[20px] lg:m-0"
+                >
+                  <!-- image wrapper -->
+                  <div
+                    class="bg-primary-300 rounded-[13px] w-full lg:max-w-auto aspect-square mb-4 overflow-hidden"
+                  >
+                    <img
+                      src="../../image/product/image2.png"
+                      alt="product image"
+                      class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                    />
+                  </div>
+
+                  <!-- content (ក្រៅ overflow-hidden) -->
+                  <strong
+                    class="text-secondary-800 xl:text-xl transition-colors duration-200 group-hover:text-blue-700 group-hover:underline"
+                  >
+                    Black Striped T-shirt
+                  </strong>
+                  <div class="flex items-center mt-2 mb-2">
+                    <i class="fa-solid fa-star text-accent-500"></i>
+                    <small class="ml-2 text-secondary-700 font-bold">4.9/5</small>
+                  </div>
+                  <div class="flex items-center space-x-[5px] xl:space-x-2.5">
+                    <span class="font-bold text-accent-500 text-xl"
+                      >$120</span
+                    >
+                  </div>
+                </a>
+              </section>
+              <section>
+                <a
+                  data-aos="zoom-out-down"
+                  href="../../index.html"
+                  class="group flex flex-col items-start rounded-[20px] lg:m-0"
+                >
+                  <!-- image wrapper -->
+                  <div
+                    class="bg-primary-300 rounded-[13px] w-full lg:max-w-auto aspect-square mb-4 overflow-hidden"
+                  >
+                    <img
+                      src="../../image/product/image3.png"
+                      alt="product image"
+                      class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                    />
+                  </div>
+
+                  <!-- content (ក្រៅ overflow-hidden) -->
+                  <strong
+                    class="text-secondary-800 xl:text-xl transition-colors duration-200 group-hover:text-blue-700 group-hover:underline"
+                  >
+                    Skinny Fit Jeans
+                  </strong>
+                  <div class="flex items-center mt-2 mb-2">
+                    <i class="fa-solid fa-star text-accent-500"></i>
+                    <small class="ml-2 text-secondary-700 font-bold">4.8/5</small>
+                  </div>
+                  <div class="flex items-center space-x-[5px] xl:space-x-2.5">
+                    <span class="font-bold text-accent-500 text-xl"
+                      >$240</span
+                    >
+                  </div>
+                </a>
+              </section>
+              <section>
+                <a
+                  data-aos="zoom-out-down"
+                  href="../../index.html"
+                  class="group flex flex-col items-start rounded-[20px] lg:m-0"
+                >
+                  <!-- image wrapper -->
+                  <div
+                    class="bg-primary-300 rounded-[13px] w-full lg:max-w-auto aspect-square mb-4 overflow-hidden"
+                  >
+                    <img
+                      src="../../image/product/image4.png"
+                      alt="product image"
+                      class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                    />
+                  </div>
+
+                  <!-- content (ក្រៅ overflow-hidden) -->
+                  <strong
+                    class="text-secondary-800 xl:text-xl transition-colors duration-200 group-hover:text-blue-700 group-hover:underline"
+                  >
+                    Checkered Shirt
+                  </strong>
+                  <div class="flex items-center mt-2 mb-2">
+                    <i class="fa-solid fa-star text-accent-500"></i>
+                    <small class="ml-2 text-secondary-700 font-bold">3.9/5</small>
+                  </div>
+                  <div class="flex items-center space-x-[5px] xl:space-x-2.5">
+                    <span class="font-bold text-accent-500 text-xl"
+                      >$160</span
+                    >
+                  </div>
+                </a>
+              </section>
+              <section>
+                <a
+                  data-aos="zoom-out-down"
+                  href="../../index.html"
+                  class="group flex flex-col items-start rounded-[20px] lg:m-0"
+                >
+                  <!-- image wrapper -->
+                  <div
+                    class="bg-primary-300 rounded-[13px] w-full lg:max-w-auto aspect-square mb-4 overflow-hidden"
+                  >
+                    <img
+                      src="../../image/product/image5.png"
+                      alt="product image"
+                      class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                    />
+                  </div>
+
+                  <!-- content (ក្រៅ overflow-hidden) -->
+                  <strong
+                    class="text-secondary-800 xl:text-xl transition-colors duration-200 group-hover:text-blue-700 group-hover:underline"
+                  >
+                    Sleeve T-shirt
+                  </strong>
+                  <div class="flex items-center mt-2 mb-2">
+                    <i class="fa-solid fa-star text-accent-500"></i>
+                    <small class="ml-2 text-secondary-700 font-bold">3.5/5</small>
+                  </div>
+                  <div class="flex items-center space-x-[5px] xl:space-x-2.5">
+                    <span class="font-bold text-accent-500 text-xl"
+                      >$130</span
+                    >
+                  </div>
+                </a>
+              </section>
+              <section>
+                <a
+                  data-aos="zoom-out-down"
+                  href="../../index.html"
+                  class="group flex flex-col items-start rounded-[20px] lg:m-0"
+                >
+                  <!-- image wrapper -->
+                  <div
+                    class="bg-primary-300 rounded-[13px] w-full lg:max-w-auto aspect-square mb-4 overflow-hidden"
+                  >
+                    <img
+                      src="../../image/product/image6.png"
+                      alt="product image"
+                      class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                    />
+                  </div>
+
+                  <!-- content (ក្រៅ overflow-hidden) -->
+                  <strong
+                    class="text-secondary-800 xl:text-xl transition-colors duration-200 group-hover:text-blue-700 group-hover:underline"
+                  >
+                    Vertical Shirt
+                  </strong>
+                  <div class="flex items-center mt-2 mb-2">
+                    <i class="fa-solid fa-star text-accent-500"></i>
+                    <small class="ml-2 text-secondary-700 font-bold">4.1/5</small>
+                  </div>
+                  <div class="flex items-center space-x-[5px] xl:space-x-2.5">
+                    <span class="font-bold text-accent-500 text-xl"
+                      >$212</span
+                    >
+                  </div>
+                </a>
+              </section>
+              <section>
+                <a
+                  data-aos="zoom-out-down"
+                  href="../../index.html"
+                  class="group flex flex-col items-start rounded-[20px] lg:m-0"
+                >
+                  <!-- image wrapper -->
+                  <div
+                    class="bg-primary-300 rounded-[13px] w-full lg:max-w-auto aspect-square mb-4 overflow-hidden"
+                  >
+                    <img
+                      src="../../image/product/image7.png"
+                      alt="product image"
+                      class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                    />
+                  </div>
+
+                  <!-- content (ក្រៅ overflow-hidden) -->
+                  <strong
+                    class="text-secondary-800 xl:text-xl transition-colors duration-200 group-hover:text-blue-700 group-hover:underline"
+                  >
+                    Courage T-shirt
+                  </strong>
+                  <div class="flex items-center mt-2 mb-2">
+                    <i class="fa-solid fa-star text-accent-500"></i>
+                    <small class="ml-2 text-secondary-700 font-bold">4.4/5</small>
+                  </div>
+                  <div class="flex items-center space-x-[5px] xl:space-x-2.5">
+                    <span class="font-bold text-accent-500 text-xl"
+                      >$110</span
+                    >
+                  </div>
+                </a>
+              </section>
+              <section>
+                <a
+                  data-aos="zoom-out-down"
+                  href="../../index.html"
+                  class="group flex flex-col items-start rounded-[20px] lg:m-0"
+                >
+                  <!-- image wrapper -->
+                  <div
+                    class="bg-primary-300 rounded-[13px] w-full lg:max-w-auto aspect-square mb-4 overflow-hidden"
+                  >
+                    <img
+                      src="../../image/product/image8.png"
+                      alt="product image"
+                      class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                    />
+                  </div>
+
+                  <!-- content (ក្រៅ overflow-hidden) -->
+                  <strong
+                    class="text-secondary-800 xl:text-xl transition-colors duration-200 group-hover:text-blue-700 group-hover:underline"
+                  >
+                    Black Jeans
+                  </strong>
+                  <div class="flex items-center mt-2 mb-2">
+                    <i class="fa-solid fa-star text-accent-500"></i>
+                    <small class="ml-2 text-secondary-700 font-bold">2.8/5</small>
+                  </div>
+                  <div class="flex items-center space-x-[5px] xl:space-x-2.5">
+                    <span class="font-bold text-accent-500 text-xl"
+                      >$90</span
+                    >
+                  </div>
+                </a>
+              </section>
+              
+            </div>
+          </article>
+        </div>
+      </aside>
+    </main>
+    <div class="flex justify-center items-center space-x-2 py-6">
+      <div
+        class="w-10 h-10 text-white rounded-[10px] bg-primary-200 flex items-center justify-center"
+      >
+        <i class="fa-solid fa-angle-left"></i>
+      </div>
+      <div
+        class="w-10 h-10 text-white rounded-[10px] bg-primary-700 flex items-center justify-center"
+      >
+        1
+      </div>
+      <div
+        class="w-10 h-10 text-white rounded-[10px] bg-primary-200 flex items-center justify-center"
+      >
+        2
+      </div>
+      <div
+        class="w-10 h-10 text-gray-900 rounded-[10px] flex items-center justify-center"
+      >
+        ...
+      </div>
+      <div
+        class="w-10 h-10 text-white rounded-[10px] bg-primary-200 flex items-center justify-center"
+      >
+        10
+      </div>
+      <div
+        class="w-10 h-10 text-white rounded-[10px] bg-primary-200 flex items-center justify-center"
+      >
+        <i class="fa-solid fa-angle-right"></i>
+      </div>
+    </div>
+    <!-- footer -->
+    <footer
+      class="bg-secondary-700 py-8 px-4 sm:py-12 sm:px-6 font-sans dark:bg-dark-nav-bg transition-colors duration-300"
+    >
+      <div class="max-w-7xl mx-auto">
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-10 lg:gap-12 text-center sm:text-left"
+        >
+          <!-- Organize By Section -->
+          <article
+            class="flex flex-col items-center sm:items-start gap-4 sm:gap-5"
+          >
+            <h3
+              class="text-lg sm:text-xl lg:text-2xl font-semibold mb-2 text-primary-50"
+            >
+              Organize By
+            </h3>
+            <figure>
+              <img
+                src="../../asset/Istad.png"
+                alt="ISTAD Logo"
+                class="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 object-contain rounded-full p-1"
+                loading="lazy"
+              />
+            </figure>
+            <p
+              class="text-sm sm:text-base leading-relaxed max-w-xs text-secondary-100 px-2 sm:px-0"
+            >
+              Institute of Science and Technology Advanced Development
+            </p>
+          </article>
+
+          <!-- Explore Section -->
+          <nav aria-labelledby="footer-explore" class="mt-4 sm:mt-0">
+            <h3
+              id="footer-explore"
+              class="text-lg sm:text-xl lg:text-2xl font-semibold mb-4 sm:mb-6 text-primary-50"
+            >
+              Explore
+            </h3>
+            <ul class="space-y-3 sm:space-y-4 text-secondary-200">
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-accent-brand transition-colors text-sm sm:text-base lg:text-lg block py-1"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-accent-brand transition-colors text-sm sm:text-base lg:text-lg block py-1"
+                  >Product</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-accent-brand transition-colors text-sm sm:text-base lg:text-lg block py-1"
+                  >About Us</a
+                >
+              </li>
+            </ul>
+          </nav>
+
+          <!-- Brand Section -->
+          <nav aria-labelledby="footer-brand" class="mt-4 sm:mt-0">
+            <h3
+              id="footer-brand"
+              class="text-lg sm:text-xl lg:text-2xl font-semibold mb-4 sm:mb-6 text-primary-50"
+            >
+              Brand
+            </h3>
+            <ul class="space-y-3 sm:space-y-4 text-secondary-200">
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-accent-brand transition-colors text-sm sm:text-base lg:text-lg block py-1"
+                  >Nike</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-accent-brand transition-colors text-sm sm:text-base lg:text-lg block py-1"
+                  >Louis Vuitton</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-accent-brand transition-colors text-sm sm:text-base lg:text-lg block py-1"
+                  >Gucci</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-accent-brand transition-colors text-sm sm:text-base lg:text-lg block py-1"
+                  >Adidas</a
+                >
+              </li>
+            </ul>
+          </nav>
+
+          <!-- Information Section -->
+          <nav aria-labelledby="footer-info" class="mt-4 sm:mt-0">
+            <h3
+              id="footer-info"
+              class="text-lg sm:text-xl lg:text-2xl font-semibold mb-4 sm:mb-6 text-primary-50"
+            >
+              Information
+            </h3>
+            <ul class="space-y-3 sm:space-y-4 text-secondary-200">
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-accent-brand transition-colors text-sm sm:text-base lg:text-lg block py-1"
+                  >Feedback</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-accent-brand transition-colors text-sm sm:text-base lg:text-lg block py-1"
+                  >FAQ</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-accent-brand transition-colors text-sm sm:text-base lg:text-lg block py-1"
+                  >Support</a
+                >
+              </li>
+            </ul>
+          </nav>
+
+          <!-- Logo Section -->
+          <aside class="flex flex-col items-center gap-4 sm:gap-5 mt-4 sm:mt-0">
+            <img
+              src="../../asset/logo.png"
+              alt="Product Icon"
+              class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 object-contain brightness-0 invert opacity-90"
+              loading="lazy"
+            />
+            <p
+              class="text-sm sm:text-base text-center leading-snug italic text-secondary-100 px-4 sm:px-0 max-w-xs"
+            >
+              Provide High Quality Products For Everyone
+            </p>
+          </aside>
+        </div>
+
+        <!-- Copyright Section -->
+        <div
+          class="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-secondary-400/30 text-center"
+        >
+          <small class="text-sm sm:text-base text-secondary-300">
+            &copy; 2026 TinhMuy | All Rights Reserved
+          </small>
+        </div>
+      </div>
+    </footer>
+
+    <!-- script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 1000, // ១វិនាទីក្នុងការផ្លាស់ប្តូរ
+        once: true, // បង្ហាញតែម្តងពេលscrollមកដល់
+      });
+    </script>
+    <!-- Button range -->
+    <script>
+      const min = document.getElementById("min");
+      const max = document.getElementById("max");
+      const minVal = document.getElementById("minVal");
+      const maxVal = document.getElementById("maxVal");
+
+      min.oninput = () => {
+        if (+min.value > +max.value) min.value = max.value;
+        minVal.textContent = min.value;
+      };
+
+      max.oninput = () => {
+        if (+max.value < +min.value) max.value = min.value;
+        maxVal.textContent = max.value;
+      };
+    </script>
+    <!-- Color selection -->
+    <script>
+      const colors = document.querySelectorAll(".color");
+
+      colors.forEach((color) => {
+        color.addEventListener("click", () => {
+          colors.forEach((c) => c.classList.remove("selected"));
+
+          color.classList.add("selected");
+
+          // fix ✓ for white color
+          if (color.classList.contains("bg-white")) {
+            color.style.setProperty("--check-color", "black");
+            color.classList.add("text-black");
+          } else {
+            color.classList.remove("text-black");
+          }
+        });
+      });
+    </script>
+    <!-- Size selection -->
+    <script>
+      const buttons = document.querySelectorAll(".size-btn");
+
+      buttons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          buttons.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+        });
+      });
+    </script>
+  </body>
 </html>
