@@ -96,29 +96,6 @@ export class ProfileManager {
         }
     }
 
-    async handleDeleteAccount() {
-        const confirmDelete = confirm('Are you sure you want to delete your account? This action cannot be undone.');
-        
-        if (confirmDelete) {
-            try {
-                // Note: You would need to import deleteUser from Firebase
-                // import { deleteUser } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-auth.js";
-                // await deleteUser(auth.currentUser);
-                
-                // For now, just logout and clear data
-                await signOut(auth);
-                localStorage.clear();
-                this.showMessage('Account deleted successfully.', 'success');
-                setTimeout(() => {
-                    window.location.href = '../../index.html';
-                }, 1500);
-            } catch (error) {
-                console.error('Delete account error:', error);
-                this.showMessage('Failed to delete account. Please try again.', 'error');
-            }
-        }
-    }
-
     async handleSaveChanges(e) {
         e.preventDefault();
         

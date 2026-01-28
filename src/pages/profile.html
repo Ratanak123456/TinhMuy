@@ -252,6 +252,149 @@
             </p>
           </div>
         </div>
+      <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-8">
+        <aside
+          class="w-full md:w-64 bg-primary-600 dark:bg-primary-800 rounded-3xl p-6 flex flex-col gap-2 h-fit transition-colors duration-300"
+        >
+          <button
+            class="flex items-center gap-3 w-full p-3 text-white bg-white/10 dark:bg-white/5 rounded-xl transition-colors"
+          >
+            <i class="fa-regular fa-user"></i>
+            <span class="font-medium">Profile</span>
+          </button>
+          <button
+            class="flex items-center gap-3 w-full p-3 text-white/70 hover:bg-white/5 rounded-xl transition-all"
+          >
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Delivery Address</span>
+          </button>
+          <button
+            class="flex items-center gap-3 w-full p-3 text-white/70 hover:bg-white/5 rounded-xl transition-all"
+          >
+            <i class="fa-regular fa-credit-card"></i>
+            <span>Payment Methods</span>
+          </button>
+          <button
+            class="flex items-center gap-3 w-full p-3 text-white/70 hover:bg-white/5 rounded-xl transition-all"
+          >
+            <i class="fa-regular fa-circle-check"></i>
+            <span>Help or complaint</span>
+          </button>
+          <button
+            id="sidebarLogoutBtn"
+            class="flex items-center gap-3 w-full p-3 text-white/70 hover:bg-white/5 rounded-xl transition-all mt-4"
+          >
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            <span>Logout</span>
+          </button>
+          <button
+            id="deleteAccountBtn"
+            class="flex items-center gap-3 w-full p-3 text-red-400 hover:bg-red-500/10 rounded-xl transition-all mt-8"
+          >
+            <i class="fa-regular fa-trash-can"></i> <span>Delete Account</span>
+          </button>
+        </aside>
+
+        <main
+          class="flex-1 bg-primary-600 dark:bg-primary-800 rounded-3xl p-8 text-white transition-colors duration-300"
+        >
+          <h2 class="text-2xl font-bold mb-8">Personal Info</h2>
+
+          <form id="profileForm" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="flex flex-col gap-2">
+              <label class="text-sm opacity-80 ml-1">First Name</label>
+              <input
+                type="text"
+                id="firstName"
+                value="Lame"
+                class="w-full p-3 rounded-full bg-white dark:bg-primary-900 text-primary-900 dark:text-primary-100 outline-none focus:ring-2 ring-accent-brand transition-colors duration-300"
+              />
+            </div>
+            <div class="flex flex-col gap-2">
+              <label class="text-sm opacity-80 ml-1">Last Name</label>
+              <input
+                type="text"
+                id="lastName"
+                value="Izanaki"
+                class="w-full p-3 rounded-full bg-white dark:bg-primary-900 text-primary-900 dark:text-primary-100 outline-none transition-colors duration-300"
+              />
+            </div>
+            <div class="flex flex-col gap-2">
+              <label class="text-sm opacity-80 ml-1">Nickname</label>
+              <input
+                type="text"
+                id="nickname"
+                placeholder="Optional..."
+                class="w-full p-3 rounded-full bg-white dark:bg-primary-900 text-primary-900 dark:text-primary-100 outline-none placeholder-primary-400 dark:placeholder-primary-500 transition-colors duration-300"
+              />
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <label class="text-sm opacity-80 ml-1">Date of Birth</label>
+              <div class="relative">
+                <input
+                  type="date"
+                  id="dob"
+                  class="w-full p-3 rounded-full bg-white dark:bg-primary-900 text-primary-900 dark:text-primary-100 outline-none transition-colors duration-300"
+                />
+                <i
+                  class="fa-regular fa-calendar absolute right-4 top-1/2 -translate-y-1/2 text-primary-500 dark:text-primary-400 pointer-events-none"
+                ></i>
+              </div>
+            </div>
+            <div class="flex flex-col gap-2">
+              <label class="text-sm opacity-80 ml-1">Gender</label>
+              <select
+                id="gender"
+                class="w-full p-3 rounded-full bg-white dark:bg-primary-900 text-primary-900 dark:text-primary-100 outline-none appearance-none transition-colors duration-300"
+              >
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="flex flex-col gap-2">
+              <label class="text-sm opacity-80 ml-1">Country</label>
+              <select
+                id="country"
+                class="w-full p-3 rounded-full bg-white dark:bg-primary-900 text-primary-900 dark:text-primary-100 outline-none appearance-none transition-colors duration-300"
+              >
+                <option value="cambodia">Cambodia</option>
+                <option value="usa">USA</option>
+              </select>
+            </div>
+
+            <div class="flex flex-col gap-2 md:col-span-2">
+              <label class="text-sm opacity-80 ml-1">Email</label>
+              <input
+                type="email"
+                id="email"
+                class="w-full p-3 rounded-full bg-white dark:bg-primary-900 text-primary-900 dark:text-primary-100 outline-none transition-colors duration-300"
+                readonly
+              />
+            </div>
+            <div class="flex flex-col gap-2">
+              <label class="text-sm opacity-80 ml-1">Phone Number</label>
+              <input
+                type="tel"
+                id="phone"
+                value="+855 017490085"
+                class="w-full p-3 rounded-full bg-white dark:bg-primary-900 text-primary-900 dark:text-primary-100 outline-none transition-colors duration-300"
+              />
+            </div>
+
+            <!-- Save Button -->
+            <div class="md:col-span-3 flex justify-end mt-6">
+              <button
+                type="submit"
+                id="saveChangesBtn"
+                class="px-8 py-3 bg-accent-brand text-white rounded-full hover:bg-opacity-90 transition-colors font-medium"
+              >
+                Save Changes
+              </button>
+            </div>
+          </form>
+        </main>
       </div>
     </div>
 
