@@ -66,12 +66,8 @@ export class ProfileManager {
 
     setupEventListeners() {
         // Logout buttons
-        document.getElementById('logoutBtn').addEventListener('click', () => this.handleLogout());
         document.getElementById('sidebarLogoutBtn').addEventListener('click', () => this.handleLogout());
-        
-        // Delete account button
-        document.getElementById('deleteAccountBtn').addEventListener('click', () => this.handleDeleteAccount());
-        
+                
         // Save changes button
         document.getElementById('saveChangesBtn').addEventListener('click', (e) => this.handleSaveChanges(e));
         

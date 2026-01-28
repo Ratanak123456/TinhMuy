@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Products</title>
-        <!-- fav icon -->
+  <!-- fav icon -->
   <link rel="shortcut icon" href="/asset/logo.png" type="image/x-icon" />
   <meta property="og:title" content="Products" />
   <meta property="og:type" content="website" />
@@ -194,7 +194,7 @@
           </button>
 
           <!-- Simple Profile Icon Button (Initially hidden) -->
-          <button id="profileIconBtn" onclick="window.location.href = '/profile.html'"
+          <button id="profileIconBtn" onclick="window.location.href = './profile.html'"
             class="hidden w-10 h-10 rounded-full bg-secondary-600 flex items-center justify-center text-white hover:bg-secondary-700 transition-colors"
             aria-label="Go to profile" title="My Profile">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -323,43 +323,35 @@
     </div>
   </header>
 
-<div class="hidden lg:flex flex-wrap justify-center items-center gap-5">
-  <div class="flex justify-between items-center w-73.75 bg-secondary-700 dark:bg-primary-800/50 mb-4 mt-4 rounded-[10px] p-4 border border-transparent dark:border-primary-700 transition-all hover:scale-105">
-    <img 
-      class="w-25 h-12 object-contain dark:brightness-200 dark:invert" 
-      src="../../image/brand/nikelogo.png" 
-      alt="Nike Logo" 
-    />
-    <h2 class="text-4xl font-bold text-white dark:text-secondary-100">NIKE</h2>
-  </div>
+  <div class="hidden lg:flex flex-wrap justify-center items-center gap-5">
+    <div
+      class="flex justify-between items-center w-73.75 bg-secondary-700 dark:bg-primary-800/50 mb-4 mt-4 rounded-[10px] p-4 border border-transparent dark:border-primary-700 transition-all hover:scale-105">
+      <img class="w-25 h-12 object-contain dark:brightness-200 dark:invert" src="../../image/brand/nikelogo.png"
+        alt="Nike Logo" />
+      <h2 class="text-4xl font-bold text-white dark:text-secondary-100">NIKE</h2>
+    </div>
 
-  <div class="flex justify-between items-center w-73.75 bg-secondary-700 dark:bg-primary-800/50 mb-4 mt-4 rounded-[10px] p-4 border border-transparent dark:border-primary-700 transition-all hover:scale-105">
-    <img 
-      class="w-15 h-12 object-contain dark:brightness-200 dark:invert" 
-      src="../../image/brand/lv.png" 
-      alt="LV Logo" 
-    />
-    <h2 class="text-4xl font-bold text-white dark:text-secondary-100">LOUIS</h2>
-  </div>
+    <div
+      class="flex justify-between items-center w-73.75 bg-secondary-700 dark:bg-primary-800/50 mb-4 mt-4 rounded-[10px] p-4 border border-transparent dark:border-primary-700 transition-all hover:scale-105">
+      <img class="w-15 h-12 object-contain dark:brightness-200 dark:invert" src="../../image/brand/lv.png"
+        alt="LV Logo" />
+      <h2 class="text-4xl font-bold text-white dark:text-secondary-100">LOUIS</h2>
+    </div>
 
-  <div class="flex justify-between items-center w-73.75 bg-secondary-700 dark:bg-primary-800/50 mb-4 mt-4 rounded-[10px] p-4 border border-transparent dark:border-primary-700 transition-all hover:scale-105">
-    <img 
-      class="w-20 h-12 object-contain dark:brightness-200 dark:invert" 
-      src="../../image/brand/g.png" 
-      alt="Gucci Logo" 
-    />
-    <h2 class="text-4xl font-bold text-white dark:text-secondary-100">GUCCI</h2>
-  </div>
+    <div
+      class="flex justify-between items-center w-73.75 bg-secondary-700 dark:bg-primary-800/50 mb-4 mt-4 rounded-[10px] p-4 border border-transparent dark:border-primary-700 transition-all hover:scale-105">
+      <img class="w-20 h-12 object-contain dark:brightness-200 dark:invert" src="../../image/brand/g.png"
+        alt="Gucci Logo" />
+      <h2 class="text-4xl font-bold text-white dark:text-secondary-100">GUCCI</h2>
+    </div>
 
-  <div class="flex justify-between items-center w-73.75 bg-secondary-700 dark:bg-primary-800/50 mb-4 mt-4 rounded-[10px] p-4 border border-transparent dark:border-primary-700 transition-all hover:scale-105">
-    <img 
-      class="w-25 h-12 object-contain dark:brightness-200 dark:invert" 
-      src="../../image/brand/ad.png" 
-      alt="Adidas Logo" 
-    />
-    <h2 class="text-4xl font-bold text-white dark:text-secondary-100">ADIDAS</h2>
+    <div
+      class="flex justify-between items-center w-73.75 bg-secondary-700 dark:bg-primary-800/50 mb-4 mt-4 rounded-[10px] p-4 border border-transparent dark:border-primary-700 transition-all hover:scale-105">
+      <img class="w-25 h-12 object-contain dark:brightness-200 dark:invert" src="../../image/brand/ad.png"
+        alt="Adidas Logo" />
+      <h2 class="text-4xl font-bold text-white dark:text-secondary-100">ADIDAS</h2>
+    </div>
   </div>
-</div>
 
   <main>
     <!-- Product page content -->
@@ -656,17 +648,19 @@
       });
     });
   </script>
-    <script src="../JavaScript/dakrMode.js"></script>
-    <script type="module">
+  
+  <script type="module">
     import { initAuthState } from "../JavaScript/Auth/auth-state.js";
 
     document.addEventListener("DOMContentLoaded", () => {
       initAuthState();
     });
   </script>
+
   <!-- Add this line AFTER your existing scripts -->
+
   <script src="../JavaScript/product.js"></script>
-  <script src="../JavaScript/navbar.js"></script>
+  <script src="../JavaScript/navBar.js"></script>
   <script src="../JavaScript/dakrMode.js"></script>
 </body>
 

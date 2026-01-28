@@ -102,7 +102,7 @@
           </button>
 
           <!-- Simple Profile Icon Button (Initially hidden) -->
-          <button id="profileIconBtn" onclick="window.location.href = '/profile.html'"
+          <button id="profileIconBtn" onclick="window.location.href = './profile.html'"
             class="hidden w-10 h-10 rounded-full bg-secondary-600 flex items-center justify-center text-white hover:bg-secondary-700 transition-colors"
             aria-label="Go to profile" title="My Profile">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -217,7 +217,8 @@
                     d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                 </svg>
               </div>
-              <span class="text-sm font-medium text-secondary-700 dark:text-secondary-300">My Profile</span>
+              <span class="text-sm font-medium text-secondary-700 dark:text-secondary-300">My
+                Profile</span>
             </button>
 
             <!-- Login Button Mobile (Initially shown) -->
@@ -257,28 +258,34 @@
       <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-8">
         <aside
           class="w-full md:w-64 bg-primary-600 dark:bg-primary-800 rounded-3xl p-6 flex flex-col gap-2 h-fit transition-colors duration-300">
+          
           <button
             class="flex items-center gap-3 w-full p-3 text-white bg-white/10 dark:bg-white/5 rounded-xl transition-colors">
             <i class="fa-regular fa-user"></i>
             <span class="font-medium">Profile</span>
           </button>
+
           <button class="flex items-center gap-3 w-full p-3 text-white/70 hover:bg-white/5 rounded-xl transition-all">
             <i class="fa-solid fa-location-dot"></i>
             <span>Delivery Address</span>
           </button>
+
           <button class="flex items-center gap-3 w-full p-3 text-white/70 hover:bg-white/5 rounded-xl transition-all">
             <i class="fa-regular fa-credit-card"></i>
             <span>Payment Methods</span>
           </button>
+
           <button class="flex items-center gap-3 w-full p-3 text-white/70 hover:bg-white/5 rounded-xl transition-all">
             <i class="fa-regular fa-circle-check"></i>
             <span>Help or complaint</span>
           </button>
+
           <button id="sidebarLogoutBtn"
-            class="flex items-center gap-3 w-full p-3 text-white/70 hover:bg-white/5 rounded-xl transition-all mt-4">
+            class="flex items-center gap-3 w-full p-3 text-white/70 hover:bg-white/5 rounded-xl transition-all">
             <i class="fa-solid fa-arrow-right-from-bracket"></i>
             <span>Logout</span>
           </button>
+
           <button id="deleteAccountBtn"
             class="flex items-center gap-3 w-full p-3 text-red-400 hover:bg-red-500/10 rounded-xl transition-all mt-8">
             <i class="fa-regular fa-trash-can"></i> <span>Delete Account</span>
@@ -292,12 +299,12 @@
           <form id="profileForm" class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div class="flex flex-col gap-2">
               <label class="text-sm opacity-80 ml-1">First Name</label>
-              <input type="text" id="firstName" value="Lame"
+              <input type="text" id="firstName" value="kurosaki"
                 class="w-full p-3 rounded-full bg-white dark:bg-primary-900 text-primary-900 dark:text-primary-100 outline-none focus:ring-2 ring-accent-brand transition-colors duration-300" />
             </div>
             <div class="flex flex-col gap-2">
               <label class="text-sm opacity-80 ml-1">Last Name</label>
-              <input type="text" id="lastName" value="Izanaki"
+              <input type="text" id="lastName" value="Ichigo"
                 class="w-full p-3 rounded-full bg-white dark:bg-primary-900 text-primary-900 dark:text-primary-100 outline-none transition-colors duration-300" />
             </div>
             <div class="flex flex-col gap-2">
@@ -355,126 +362,127 @@
           </form>
         </main>
       </div>
+    </div>
   </div>
-  </div>
 
-    <!-- footer -->
-    <footer
-      class="bg-secondary-700 py-8 px-4 sm:py-12 sm:px-6 font-sans dark:bg-dark-nav-bg transition-colors duration-300">
-      <div class="max-w-7xl mx-auto">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-10 lg:gap-12 text-center sm:text-left">
-          <!-- Organize By Section -->
-          <article class="flex flex-col items-center sm:items-start gap-4 sm:gap-5">
-            <h3 class="text-lg sm:text-xl lg:text-2xl font-semibold mb-2 text-primary-50">
-              Organize By
-            </h3>
-            <figure>
-              <img src="../../asset/Istad.png" alt="ISTAD Logo"
-                class="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 object-contain rounded-full p-1" loading="lazy" />
-            </figure>
-            <p class="text-sm sm:text-base leading-relaxed max-w-xs text-secondary-100 px-2 sm:px-0">
-              Institute of Science and Technology Advanced Development
-            </p>
-          </article>
+  <!-- footer -->
+  <footer
+    class="bg-secondary-700 py-8 px-4 sm:py-12 sm:px-6 font-sans dark:bg-dark-nav-bg transition-colors duration-300">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-10 lg:gap-12 text-center sm:text-left">
+        <!-- Organize By Section -->
+        <article class="flex flex-col items-center sm:items-start gap-4 sm:gap-5">
+          <h3 class="text-lg sm:text-xl lg:text-2xl font-semibold mb-2 text-primary-50">
+            Organize By
+          </h3>
+          <figure>
+            <img src="../../asset/Istad.png" alt="ISTAD Logo"
+              class="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 object-contain rounded-full p-1" loading="lazy" />
+          </figure>
+          <p class="text-sm sm:text-base leading-relaxed max-w-xs text-secondary-100 px-2 sm:px-0">
+            Institute of Science and Technology Advanced Development
+          </p>
+        </article>
 
-          <!-- Explore Section -->
-          <nav aria-labelledby="footer-explore" class="mt-4 sm:mt-0">
-            <h3 id="footer-explore" class="text-lg sm:text-xl lg:text-2xl font-semibold mb-4 sm:mb-6 text-primary-50">
-              Explore
-            </h3>
-            <ul class="space-y-3 sm:space-y-4 text-secondary-200">
-              <li>
-                <a href="/"
-                  class="hover:text-accent-brand transition-colors text-sm sm:text-base lg:text-lg block py-1">Home</a>
-              </li>
-              <li>
-                <a href="./product.html"
-                  class="hover:text-accent-brand transition-colors text-sm sm:text-base lg:text-lg block py-1">Product</a>
-              </li>
-              <li>
-                <a href="./about.html"
-                  class="hover:text-accent-brand transition-colors text-sm sm:text-base lg:text-lg block py-1">About
-                  Us</a>
-              </li>
-            </ul>
-          </nav>
+        <!-- Explore Section -->
+        <nav aria-labelledby="footer-explore" class="mt-4 sm:mt-0">
+          <h3 id="footer-explore" class="text-lg sm:text-xl lg:text-2xl font-semibold mb-4 sm:mb-6 text-primary-50">
+            Explore
+          </h3>
+          <ul class="space-y-3 sm:space-y-4 text-secondary-200">
+            <li>
+              <a href="/"
+                class="hover:text-accent-brand transition-colors text-sm sm:text-base lg:text-lg block py-1">Home</a>
+            </li>
+            <li>
+              <a href="./product.html"
+                class="hover:text-accent-brand transition-colors text-sm sm:text-base lg:text-lg block py-1">Product</a>
+            </li>
+            <li>
+              <a href="./about.html"
+                class="hover:text-accent-brand transition-colors text-sm sm:text-base lg:text-lg block py-1">About
+                Us</a>
+            </li>
+          </ul>
+        </nav>
 
-          <!-- Brand Section -->
-          <nav aria-labelledby="footer-brand" class="mt-4 sm:mt-0">
-            <h3 id="footer-brand" class="text-lg sm:text-xl lg:text-2xl font-semibold mb-4 sm:mb-6 text-primary-50">
-              Brand
-            </h3>
-            <ul class="space-y-3 sm:space-y-4 text-secondary-200">
-              <li>
-                <a href="./product.html"
-                  class="hover:text-accent-brand transition-colors text-sm sm:text-base lg:text-lg block py-1">Nike</a>
-              </li>
-              <li>
-                <a href="./product.html"
-                  class="hover:text-accent-brand transition-colors text-sm sm:text-base lg:text-lg block py-1">Louis
-                  Vuitton</a>
-              </li>
-              <li>
-                <a href="./product.html"
-                  class="hover:text-accent-brand transition-colors text-sm sm:text-base lg:text-lg block py-1">Gucci</a>
-              </li>
-              <li>
-                <a href="./product.html"
-                  class="hover:text-accent-brand transition-colors text-sm sm:text-base lg:text-lg block py-1">Adidas</a>
-              </li>
-            </ul>
-          </nav>
+        <!-- Brand Section -->
+        <nav aria-labelledby="footer-brand" class="mt-4 sm:mt-0">
+          <h3 id="footer-brand" class="text-lg sm:text-xl lg:text-2xl font-semibold mb-4 sm:mb-6 text-primary-50">
+            Brand
+          </h3>
+          <ul class="space-y-3 sm:space-y-4 text-secondary-200">
+            <li>
+              <a href="./product.html"
+                class="hover:text-accent-brand transition-colors text-sm sm:text-base lg:text-lg block py-1">Nike</a>
+            </li>
+            <li>
+              <a href="./product.html"
+                class="hover:text-accent-brand transition-colors text-sm sm:text-base lg:text-lg block py-1">Louis
+                Vuitton</a>
+            </li>
+            <li>
+              <a href="./product.html"
+                class="hover:text-accent-brand transition-colors text-sm sm:text-base lg:text-lg block py-1">Gucci</a>
+            </li>
+            <li>
+              <a href="./product.html"
+                class="hover:text-accent-brand transition-colors text-sm sm:text-base lg:text-lg block py-1">Adidas</a>
+            </li>
+          </ul>
+        </nav>
 
-          <!-- Information Section -->
-          <nav aria-labelledby="footer-info" class="mt-4 sm:mt-0">
-            <h3 id="footer-info" class="text-lg sm:text-xl lg:text-2xl font-semibold mb-4 sm:mb-6 text-primary-50">
-              Information
-            </h3>
-            <ul class="space-y-3 sm:space-y-4 text-secondary-200">
-              <li>
-                <a href="/"
-                  class="hover:text-accent-brand transition-colors text-sm sm:text-base lg:text-lg block py-1">Feedback</a>
-              </li>
-              <li>
-                <a href="/"
-                  class="hover:text-accent-brand transition-colors text-sm sm:text-base lg:text-lg block py-1">FAQ</a>
-              </li>
-              <li>
-                <a href="./about.html"
-                  class="hover:text-accent-brand transition-colors text-sm sm:text-base lg:text-lg block py-1">Support</a>
-              </li>
-            </ul>
-          </nav>
+        <!-- Information Section -->
+        <nav aria-labelledby="footer-info" class="mt-4 sm:mt-0">
+          <h3 id="footer-info" class="text-lg sm:text-xl lg:text-2xl font-semibold mb-4 sm:mb-6 text-primary-50">
+            Information
+          </h3>
+          <ul class="space-y-3 sm:space-y-4 text-secondary-200">
+            <li>
+              <a href="/"
+                class="hover:text-accent-brand transition-colors text-sm sm:text-base lg:text-lg block py-1">Feedback</a>
+            </li>
+            <li>
+              <a href="/"
+                class="hover:text-accent-brand transition-colors text-sm sm:text-base lg:text-lg block py-1">FAQ</a>
+            </li>
+            <li>
+              <a href="./about.html"
+                class="hover:text-accent-brand transition-colors text-sm sm:text-base lg:text-lg block py-1">Support</a>
+            </li>
+          </ul>
+        </nav>
 
-          <!-- Logo Section -->
-          <aside class="flex flex-col items-center gap-4 sm:gap-5 mt-4 sm:mt-0">
-            <img src="../../asset/logo.png" alt="Product Icon"
-              class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 object-contain brightness-0 invert opacity-90"
-              loading="lazy" />
-            <p class="text-sm sm:text-base text-center leading-snug italic text-secondary-100 px-4 sm:px-0 max-w-xs">
-              Provide High Quality Products For Everyone
-            </p>
-          </aside>
-        </div>
-
-        <!-- Copyright Section -->
-        <div class="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-secondary-400/30 text-center">
-          <small class="text-sm sm:text-base text-secondary-300">
-            &copy; 2026 TinhMuy | All Rights Reserved
-          </small>
-        </div>
+        <!-- Logo Section -->
+        <aside class="flex flex-col items-center gap-4 sm:gap-5 mt-4 sm:mt-0">
+          <img src="../../asset/logo.png" alt="Product Icon"
+            class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 object-contain brightness-0 invert opacity-90"
+            loading="lazy" />
+          <p class="text-sm sm:text-base text-center leading-snug italic text-secondary-100 px-4 sm:px-0 max-w-xs">
+            Provide High Quality Products For Everyone
+          </p>
+        </aside>
       </div>
-    </footer>
-    <!-- Import JavaScript files -->
-    <script type="module" src="../JavaScript/Auth/profile.js"></script>
-    <script src="../JavaScript/dakrMode.js"></script>
-    <script type="module">
-      import { initAuthState } from "../JavaScript/Auth/auth-state.js";
 
-      document.addEventListener("DOMContentLoaded", () => {
-        initAuthState();
-      });
-    </script>
+      <!-- Copyright Section -->
+      <div class="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-secondary-400/30 text-center">
+        <small class="text-sm sm:text-base text-secondary-300">
+          &copy; 2026 TinhMuy | All Rights Reserved
+        </small>
+      </div>
+    </div>
+  </footer>
+  <!-- Import JavaScript files -->
+  <script src="../JavaScript/navBar.js"></script>
+  <script type="module" src="../JavaScript/Auth/profile.js"></script>
+  <script src="../JavaScript/dakrMode.js"></script>
+  <script type="module">
+    import { initAuthState } from "../JavaScript/Auth/auth-state.js";
+
+    document.addEventListener("DOMContentLoaded", () => {
+      initAuthState();
+    });
+  </script>
 </body>
 
 </html>

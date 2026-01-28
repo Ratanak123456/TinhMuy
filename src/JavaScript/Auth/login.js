@@ -58,13 +58,5 @@ export const loginTemplate = `
         </footer>
       </section>
     </article>
-
-<aside class="hidden lg:flex flex-1 items-center justify-center h-full relative">
-  <figure class="h-full flex items-center justify-center">
-    <img src="/asset/login.svg" alt="Login Illustration" class="max-h-137.5 w-auto object-contain rounded-2xl shadow-2xl h-full">
-  </figure>
-  <a href="https://storyset.com/user" class="absolute bottom-4 right-4 text-xs text-primary-500 dark:text-primary-300 bg-white/80 dark:bg-primary-800/80 px-3 py-1 rounded-lg hover:underline transition-colors">
-  </a>
-</aside>
   </div>
 </div>`;
