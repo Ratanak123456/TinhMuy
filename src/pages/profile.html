@@ -1,235 +1,465 @@
 <!doctype html>
 <html lang="en" id="main-html">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Profile | TinhMuy</title>
-    <link rel="stylesheet" href="../output.css" />
-    <script src="../JavaScript/dakrMode.js"></script>
-    <!-- Add Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <style>
-      .profile-icon {
-        background: linear-gradient(135deg, #76948f 0%, #5a706c 100%);
-      }
-    </style>
-  </head>
-  <body
-    class="bg-secondary-100 dark:bg-dark-page-bg min-h-screen transition-colors duration-300"
-  >
-    <!-- Simple Header with Back Button -->
-    <header
-      class="bg-white dark:bg-dark-nav-bg shadow-sm transition-colors duration-300"
-    >
-      <div
-        class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between"
-      >
-        <button
-          onclick="window.location.href = '../../index.html'"
-          class="flex items-center text-primary-700 dark:text-primary-300 hover:text-primary-900 dark:hover:text-primary-100 transition-colors"
-        >
-          <i class="fa-solid fa-arrow-left mr-2"></i>
-          Back to Home
-        </button>
 
-        <h1
-          class="text-xl font-semibold text-primary-800 dark:text-primary-200"
-        >
-          My Profile
-        </h1>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Profile | TinhMuy</title>
+  <link rel="stylesheet" href="../output.css" />
+  <!-- Add Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    .profile-icon {
+      background: linear-gradient(135deg, #76948f 0%, #5a706c 100%);
+    }
+  </style>
+</head>
 
-        <button
-          id="logoutBtn"
-          class="px-4 py-2 bg-red-600 text-white text-sm rounded-lg hover:bg-red-700 transition-colors"
-        >
-          Logout
+<body class="bg-secondary-100 dark:bg-dark-page-bg min-h-screen transition-colors duration-300">
+  <!-- header -->
+  <header
+    class="sticky top-0 z-50 bg-page-bg shadow-sm transition-colors duration-300 dark:bg-dark-nav-bg dark:shadow-none">
+    <nav class="flex items-center justify-between px-4 sm:px-6 lg:px-8 xl:px-12 py-3">
+      <!-- Logo -->
+      <div class="shrink-0">
+        <a href="/" aria-label="Go to homepage">
+          <img src="../../asset/logo.png" alt="Tinh Muy Logo"
+            class="h-10 sm:h-12 md:h-14 w-auto object-contain dark:brightness-110" loading="lazy" />
+        </a>
+      </div>
+
+      <!-- Desktop Navigation Menu -->
+      <ul
+        class="hidden lg:flex items-center space-x-6 xl:space-x-8 text-xs sm:text-[13px] font-bold tracking-[0.15em] text-primary-600 dark:text-secondary-400">
+        <li>
+          <a href="/" class="hover:text-secondary-600 transition-colors px-2 py-1 rounded">HOME</a>
+        </li>
+        <li>
+          <a href="./product.html" class="hover:opacity-70 transition-opacity px-2 py-1 rounded">PRODUCT</a>
+        </li>
+        <li>
+          <a href="./about.html" class="hover:opacity-70 transition-opacity px-2 py-1 rounded">ABOUT</a>
+        </li>
+      </ul>
+
+      <!-- Desktop User Actions -->
+      <section class="hidden lg:flex items-center space-x-4 xl:space-x-6" aria-label="User Actions">
+        <div class="flex items-center space-x-4 xl:space-x-5 text-secondary-600 dark:text-secondary-400">
+          <a href="./delivery.html">
+            <button aria-label="Shipping status"
+              class="hover:scale-110 transition-transform p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800">
+              <i class="fa-solid fa-truck"></i>
+            </button>
+          </a>
+
+          <a href="#">
+            <button aria-label="List"
+              class="hover:scale-110 transition-transform p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800">
+              <i class="fa-solid fa-clipboard-list"></i></button></a>
+
+          <a href="./cart-page.html">
+            <button aria-label="Shopping Cart"
+              class="hover:scale-110 transition-transform relative p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800">
+              <i class="fa-solid fa-cart-shopping"></i>
+              <span
+                class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                3
+              </span>
+            </button>
+          </a>
+        </div>
+
+        <span class="h-6 w-px bg-secondary-600/30 dark:bg-secondary-400/20" aria-hidden="true"></span>
+
+        <div class="flex items-center space-x-3">
+          <button onclick="toggleDarkMode()" aria-label="Toggle Dark Mode"
+            class="p-2 rounded-lg bg-secondary-600 text-white hover:bg-secondary-700 transition-colors dark:bg-secondary-800 min-h-11 min-w-11 flex items-center justify-center">
+            <svg class="block dark:hidden" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+            </svg>
+
+            <svg class="hidden dark:block" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2" />
+              <path d="M12 20v2" />
+              <path d="M4.93 4.93l1.41 1.41" />
+              <path d="M17.66 17.66l1.41 1.41" />
+              <path d="M2 12h2" />
+              <path d="M20 12h2" />
+              <path d="M4.93 19.07l1.41-1.41" />
+              <path d="M17.66 6.34l1.41-1.41" />
+            </svg>
+          </button>
+
+          <!-- Simple Profile Icon Button (Initially hidden) -->
+          <button id="profileIconBtn" onclick="window.location.href = '/profile.html'"
+            class="hidden w-10 h-10 rounded-full bg-secondary-600 flex items-center justify-center text-white hover:bg-secondary-700 transition-colors"
+            aria-label="Go to profile" title="My Profile">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+          </button>
+
+          <!-- Login Button (Initially shown) -->
+          <button id="loginButtonNav" onclick="window.location.href = './auth.html'"
+            class="px-4 py-2 rounded-md bg-secondary-600 text-white text-xs font-bold tracking-wider hover:bg-secondary-700 transition-colors dark:bg-secondary-800 min-h-11">
+            LOGIN
+          </button>
+        </div>
+      </section>
+
+      <!-- Mobile Actions & Menu Button -->
+      <div class="flex items-center space-x-4 lg:hidden">
+        <!-- Mobile Icons -->
+        <div class="flex items-center space-x-4 text-secondary-600 dark:text-secondary-400">
+          <div class="flex items-center">
+            <!-- Shipping Status Icon -->
+            <a href="./delivery.html">
+              <button aria-label="Shipping status" class="hover:scale-110 transition-transform p-2">
+                <i class="fa-solid fa-truck"></i></button></a>
+
+            <a href="#">
+              <!-- Delivery Icon -->
+              <button aria-label="Delivery" class="hover:scale-110 transition-transform p-2">
+                <i class="fa-solid fa-clipboard-list"></i></button></a>
+
+            <a href="./cart-page.html">
+              <!-- Shopping Cart Icon -->
+              <button aria-label="Shopping Cart" class="hover:scale-110 transition-transform relative p-2">
+                <i class="fa-solid fa-cart-shopping"></i>
+
+                <span
+                  class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                  3
+                </span>
+              </button></a>
+          </div>
+
+          <!-- Dark Mode Toggle -->
+          <button onclick="toggleDarkMode()" aria-label="Toggle Dark Mode"
+            class="p-2 rounded-md bg-secondary-600 text-white hover:bg-secondary-700 transition-colors dark:bg-secondary-800">
+            <svg class="block dark:hidden" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+            </svg>
+            <svg class="hidden dark:block" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2" />
+              <path d="M12 20v2" />
+              <path d="M4.93 4.93l1.41 1.41" />
+              <path d="M17.66 17.66l1.41 1.41" />
+              <path d="M2 12h2" />
+              <path d="M20 12h2" />
+              <path d="M4.93 19.07l1.41-1.41" />
+              <path d="M17.66 6.34l1.41-1.41" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-button" aria-label="Open menu"
+          class="p-2 rounded-md text-secondary-600 dark:text-secondary-400 hover:bg-secondary-100 dark:hover:bg-secondary-800 transition-colors min-h-11 min-w-11 flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="4" x2="20" y1="12" y2="12" />
+            <line x1="4" x2="20" y1="6" y2="6" />
+            <line x1="4" x2="20" y1="18" y2="18" />
+          </svg>
         </button>
       </div>
-    </header>
+    </nav>
 
-    <div
-      class="min-h-screen bg-page-bg dark:bg-dark-page-bg p-4 md:p-12 font-sans transition-colors duration-300"
-    >
-      <!-- User Info Header -->
-      <div class="max-w-6xl mx-auto mb-10">
-        <div
-          class="bg-white dark:bg-dark-nav-bg rounded-2xl p-6 shadow-sm transition-colors duration-300"
-        >
-          <div class="flex items-center gap-4">
-            <div
-              class="w-16 h-16 rounded-full bg-secondary-600 dark:bg-secondary-700 flex items-center justify-center text-white"
-            >
-              <i class="fa-solid fa-user text-2xl"></i>
-            </div>
-            <div>
-              <h2
-                class="text-xl font-bold text-primary-900 dark:text-primary-100"
-                id="userName"
-              >
-                User
-              </h2>
-              <p class="text-primary-600 dark:text-primary-300" id="userEmail">
-                user@example.com
-              </p>
-              <p class="text-sm text-primary-500 dark:text-primary-400 mt-1">
-                Member since <span id="accountDate">2024</span>
-              </p>
-            </div>
+    <!-- Mobile Menu (Hidden by default) -->
+    <div id="mobile-menu"
+      class="lg:hidden hidden bg-page-bg dark:bg-dark-nav-bg border-t border-secondary-200 dark:border-secondary-800 transition-all duration-300">
+      <div class="px-4 py-6">
+        <ul class="space-y-1 text-center">
+          <li>
+            <a href="/"
+              class="block py-3 px-4 text-lg font-bold tracking-wider text-primary-600 dark:text-secondary-400 hover:text-secondary-600 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors rounded-lg">
+              HOME
+            </a>
+          </li>
+          <li>
+            <a href="./product.html"
+              class="block py-3 px-4 text-lg font-bold tracking-wider text-primary-600 dark:text-secondary-400 hover:text-secondary-600 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors rounded-lg">
+              PRODUCT
+            </a>
+          </li>
+          <li>
+            <a href="./about.html"
+              class="block py-3 px-4 text-lg font-bold tracking-wider text-primary-600 dark:text-secondary-400 hover:text-secondary-600 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors rounded-lg">
+              ABOUT
+            </a>
+          </li>
+        </ul>
+
+        <div class="mt-6 pt-6 border-t border-secondary-200 dark:border-secondary-800">
+          <div class="flex flex-col items-center space-y-4">
+            <!-- Simple Profile for Mobile (Initially hidden) -->
+            <button id="profileIconMobile" onclick="window.location.href = './profile.html'"
+              class="hidden w-full max-w-xs flex items-center justify-center space-x-3 px-5 py-3 rounded-md bg-secondary-100 dark:bg-gray-800 hover:bg-secondary-200 dark:hover:bg-gray-700 transition-colors">
+              <div class="w-8 h-8 rounded-full bg-secondary-600 flex items-center justify-center text-white">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+              </div>
+              <span class="text-sm font-medium text-secondary-700 dark:text-secondary-300">My Profile</span>
+            </button>
+
+            <!-- Login Button Mobile (Initially shown) -->
+            <button id="loginButtonMobile" onclick="window.location.href = './auth.html'"
+              class="w-full max-w-xs px-5 py-3 rounded-md bg-secondary-600 text-white text-sm font-bold tracking-wider hover:bg-secondary-700 transition-colors dark:bg-secondary-800 min-h-11">
+              LOGIN
+            </button>
           </div>
         </div>
       </div>
+    </div>
+  </header>
 
-      <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-8">
-        <aside
-          class="w-full md:w-64 bg-primary-600 dark:bg-primary-800 rounded-3xl p-6 flex flex-col gap-2 h-fit transition-colors duration-300"
-        >
-          <button
-            class="flex items-center gap-3 w-full p-3 text-white bg-white/10 dark:bg-white/5 rounded-xl transition-colors"
-          >
-            <i class="fa-regular fa-user"></i>
-            <span class="font-medium">Profile</span>
-          </button>
-          <button
-            class="flex items-center gap-3 w-full p-3 text-white/70 hover:bg-white/5 rounded-xl transition-all"
-          >
-            <i class="fa-solid fa-location-dot"></i>
-            <span>Delivery Address</span>
-          </button>
-          <button
-            class="flex items-center gap-3 w-full p-3 text-white/70 hover:bg-white/5 rounded-xl transition-all"
-          >
-            <i class="fa-regular fa-credit-card"></i>
-            <span>Payment Methods</span>
-          </button>
-          <button
-            class="flex items-center gap-3 w-full p-3 text-white/70 hover:bg-white/5 rounded-xl transition-all"
-          >
-            <i class="fa-regular fa-circle-check"></i>
-            <span>Help or complaint</span>
-          </button>
-          <button
-            id="sidebarLogoutBtn"
-            class="flex items-center gap-3 w-full p-3 text-white/70 hover:bg-white/5 rounded-xl transition-all mt-4"
-          >
-            <i class="fa-solid fa-arrow-right-from-bracket"></i>
-            <span>Logout</span>
-          </button>
-          <button
-            id="deleteAccountBtn"
-            class="flex items-center gap-3 w-full p-3 text-red-400 hover:bg-red-500/10 rounded-xl transition-all mt-8"
-          >
-            <i class="fa-regular fa-trash-can"></i> <span>Delete Account</span>
-          </button>
-        </aside>
-
-        <main
-          class="flex-1 bg-primary-600 dark:bg-primary-800 rounded-3xl p-8 text-white transition-colors duration-300"
-        >
-          <h2 class="text-2xl font-bold mb-8">Personal Info</h2>
-
-          <form id="profileForm" class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="flex flex-col gap-2">
-              <label class="text-sm opacity-80 ml-1">First Name</label>
-              <input
-                type="text"
-                id="firstName"
-                value="Lame"
-                class="w-full p-3 rounded-full bg-white dark:bg-primary-900 text-primary-900 dark:text-primary-100 outline-none focus:ring-2 ring-accent-brand transition-colors duration-300"
-              />
-            </div>
-            <div class="flex flex-col gap-2">
-              <label class="text-sm opacity-80 ml-1">Last Name</label>
-              <input
-                type="text"
-                id="lastName"
-                value="Izanaki"
-                class="w-full p-3 rounded-full bg-white dark:bg-primary-900 text-primary-900 dark:text-primary-100 outline-none transition-colors duration-300"
-              />
-            </div>
-            <div class="flex flex-col gap-2">
-              <label class="text-sm opacity-80 ml-1">Nickname</label>
-              <input
-                type="text"
-                id="nickname"
-                placeholder="Optional..."
-                class="w-full p-3 rounded-full bg-white dark:bg-primary-900 text-primary-900 dark:text-primary-100 outline-none placeholder-primary-400 dark:placeholder-primary-500 transition-colors duration-300"
-              />
-            </div>
-
-            <div class="flex flex-col gap-2">
-              <label class="text-sm opacity-80 ml-1">Date of Birth</label>
-              <div class="relative">
-                <input
-                  type="date"
-                  id="dob"
-                  class="w-full p-3 rounded-full bg-white dark:bg-primary-900 text-primary-900 dark:text-primary-100 outline-none transition-colors duration-300"
-                />
-                <i
-                  class="fa-regular fa-calendar absolute right-4 top-1/2 -translate-y-1/2 text-primary-500 dark:text-primary-400 pointer-events-none"
-                ></i>
-              </div>
-            </div>
-            <div class="flex flex-col gap-2">
-              <label class="text-sm opacity-80 ml-1">Gender</label>
-              <select
-                id="gender"
-                class="w-full p-3 rounded-full bg-white dark:bg-primary-900 text-primary-900 dark:text-primary-100 outline-none appearance-none transition-colors duration-300"
-              >
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-            <div class="flex flex-col gap-2">
-              <label class="text-sm opacity-80 ml-1">Country</label>
-              <select
-                id="country"
-                class="w-full p-3 rounded-full bg-white dark:bg-primary-900 text-primary-900 dark:text-primary-100 outline-none appearance-none transition-colors duration-300"
-              >
-                <option value="cambodia">Cambodia</option>
-                <option value="usa">USA</option>
-                <option value="thailand">Thailand</option>
-              </select>
-            </div>
-
-            <div class="flex flex-col gap-2 md:col-span-2">
-              <label class="text-sm opacity-80 ml-1">Email</label>
-              <input
-                type="email"
-                id="email"
-                class="w-full p-3 rounded-full bg-white dark:bg-primary-900 text-primary-900 dark:text-primary-100 outline-none transition-colors duration-300"
-                readonly
-              />
-            </div>
-            <div class="flex flex-col gap-2">
-              <label class="text-sm opacity-80 ml-1">Phone Number</label>
-              <input
-                type="tel"
-                id="phone"
-                value="+855 017490085"
-                class="w-full p-3 rounded-full bg-white dark:bg-primary-900 text-primary-900 dark:text-primary-100 outline-none transition-colors duration-300"
-              />
-            </div>
-
-            <!-- Save Button -->
-            <div class="md:col-span-3 flex justify-end mt-6">
-              <button
-                type="submit"
-                id="saveChangesBtn"
-                class="px-8 py-3 bg-accent-brand text-white rounded-full hover:bg-opacity-90 transition-colors font-medium"
-              >
-                Save Changes
-              </button>
-            </div>
-          </form>
-        </main>
+  <div class="min-h-screen bg-page-bg dark:bg-dark-page-bg p-4 md:p-12 font-sans transition-colors duration-300">
+    <!-- User Info Header -->
+    <div class="max-w-6xl mx-auto mb-10">
+      <div class="bg-white dark:bg-dark-nav-bg rounded-2xl p-6 shadow-sm transition-colors duration-300">
+        <div class="flex items-center gap-4">
+          <div
+            class="w-16 h-16 rounded-full bg-secondary-600 dark:bg-secondary-700 flex items-center justify-center text-white">
+            <i class="fa-solid fa-user text-2xl"></i>
+          </div>
+          <div>
+            <h2 class="text-xl font-bold text-primary-900 dark:text-primary-100" id="userName">
+              User
+            </h2>
+            <p class="text-primary-600 dark:text-primary-300" id="userEmail">
+              user@example.com
+            </p>
+            <p class="text-sm text-primary-500 dark:text-primary-400 mt-1">
+              Member since <span id="accountDate">2024</span>
+            </p>
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- Import JavaScript files -->
-    <script type="module" src="../JavaScript/Auth/profile.js"></script>
-  </body>
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-8">
+      <aside
+        class="w-full md:w-64 bg-primary-600 dark:bg-primary-800 rounded-3xl p-6 flex flex-col gap-2 h-fit transition-colors duration-300">
+        <button
+          class="flex items-center gap-3 w-full p-3 text-white bg-white/10 dark:bg-white/5 rounded-xl transition-colors">
+          <i class="fa-regular fa-user"></i>
+          <span class="font-medium">Profile</span>
+        </button>
+        <button class="flex items-center gap-3 w-full p-3 text-white/70 hover:bg-white/5 rounded-xl transition-all">
+          <i class="fa-solid fa-location-dot"></i>
+          <span>Delivery Address</span>
+        </button>
+        <button class="flex items-center gap-3 w-full p-3 text-white/70 hover:bg-white/5 rounded-xl transition-all">
+          <i class="fa-regular fa-credit-card"></i>
+          <span>Payment Methods</span>
+        </button>
+        <button class="flex items-center gap-3 w-full p-3 text-white/70 hover:bg-white/5 rounded-xl transition-all">
+          <i class="fa-regular fa-circle-check"></i>
+          <span>Help or complaint</span>
+        </button>
+        <button id="sidebarLogoutBtn"
+          class="flex items-center gap-3 w-full p-3 text-white/70 hover:bg-white/5 rounded-xl transition-all mt-4">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          <span>Logout</span>
+        </button>
+        <button id="deleteAccountBtn"
+          class="flex items-center gap-3 w-full p-3 text-red-400 hover:bg-red-500/10 rounded-xl transition-all mt-8">
+          <i class="fa-regular fa-trash-can"></i> <span>Delete Account</span>
+        </button>
+      </aside>
+
+      <main class="flex-1 bg-primary-600 dark:bg-primary-800 rounded-3xl p-8 text-white transition-colors duration-300">
+        <h2 class="text-2xl font-bold mb-8">Personal Info</h2>
+
+        <form id="profileForm" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="flex flex-col gap-2">
+            <label class="text-sm opacity-80 ml-1">First Name</label>
+            <input type="text" id="firstName" value="Lame"
+              class="w-full p-3 rounded-full bg-white dark:bg-primary-900 text-primary-900 dark:text-primary-100 outline-none focus:ring-2 ring-accent-brand transition-colors duration-300" />
+          </div>
+          <div class="flex flex-col gap-2">
+            <label class="text-sm opacity-80 ml-1">Last Name</label>
+            <input type="text" id="lastName" value="Izanaki"
+              class="w-full p-3 rounded-full bg-white dark:bg-primary-900 text-primary-900 dark:text-primary-100 outline-none transition-colors duration-300" />
+          </div>
+          <div class="flex flex-col gap-2">
+            <label class="text-sm opacity-80 ml-1">Nickname</label>
+            <input type="text" id="nickname" placeholder="Optional..."
+              class="w-full p-3 rounded-full bg-white dark:bg-primary-900 text-primary-900 dark:text-primary-100 outline-none placeholder-primary-400 dark:placeholder-primary-500 transition-colors duration-300" />
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <label class="text-sm opacity-80 ml-1">Date of Birth</label>
+            <div class="relative">
+              <input type="date" id="dob"
+                class="w-full p-3 rounded-full bg-white dark:bg-primary-900 text-primary-900 dark:text-primary-100 outline-none transition-colors duration-300" />
+              <i
+                class="fa-regular fa-calendar absolute right-4 top-1/2 -translate-y-1/2 text-primary-500 dark:text-primary-400 pointer-events-none"></i>
+            </div>
+          </div>
+          <div class="flex flex-col gap-2">
+            <label class="text-sm opacity-80 ml-1">Gender</label>
+            <select id="gender"
+              class="w-full p-3 rounded-full bg-white dark:bg-primary-900 text-primary-900 dark:text-primary-100 outline-none appearance-none transition-colors duration-300">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="flex flex-col gap-2">
+            <label class="text-sm opacity-80 ml-1">Country</label>
+            <select id="country"
+              class="w-full p-3 rounded-full bg-white dark:bg-primary-900 text-primary-900 dark:text-primary-100 outline-none appearance-none transition-colors duration-300">
+              <option value="cambodia">Cambodia</option>
+              <option value="usa">USA</option>
+              <option value="thailand">Thailand</option>
+            </select>
+          </div>
+
+          <div class="flex flex-col gap-2 md:col-span-2">
+            <label class="text-sm opacity-80 ml-1">Email</label>
+            <input type="email" id="email"
+              class="w-full p-3 rounded-full bg-white dark:bg-primary-900 text-primary-900 dark:text-primary-100 outline-none transition-colors duration-300"
+              readonly />
+          </div>
+          <div class="flex flex-col gap-2">
+            <label class="text-sm opacity-80 ml-1">Phone Number</label>
+            <input type="tel" id="phone" value="+855 017490085"
+              class="w-full p-3 rounded-full bg-white dark:bg-primary-900 text-primary-900 dark:text-primary-100 outline-none transition-colors duration-300" />
+          </div>
+
+          <!-- Save Button -->
+          <div class="md:col-span-3 flex justify-end mt-6">
+            <button type="submit" id="saveChangesBtn"
+              class="px-8 py-3 bg-accent-brand text-white rounded-full hover:bg-opacity-90 transition-colors font-medium">
+              Save Changes
+            </button>
+          </div>
+        </form>
+      </main>
+    </div>
+  </div>
+
+  <!-- footer -->
+  <footer
+    class="bg-secondary-700 py-8 px-4 sm:py-12 sm:px-6 font-sans dark:bg-dark-nav-bg transition-colors duration-300">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-10 lg:gap-12 text-center sm:text-left">
+        <!-- Organize By Section -->
+        <article class="flex flex-col items-center sm:items-start gap-4 sm:gap-5">
+          <h3 class="text-lg sm:text-xl lg:text-2xl font-semibold mb-2 text-primary-50">
+            Organize By
+          </h3>
+          <figure>
+            <img src="../../asset/Istad.png" alt="ISTAD Logo"
+              class="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 object-contain rounded-full p-1" loading="lazy" />
+          </figure>
+          <p class="text-sm sm:text-base leading-relaxed max-w-xs text-secondary-100 px-2 sm:px-0">
+            Institute of Science and Technology Advanced Development
+          </p>
+        </article>
+
+        <!-- Explore Section -->
+        <nav aria-labelledby="footer-explore" class="mt-4 sm:mt-0">
+          <h3 id="footer-explore" class="text-lg sm:text-xl lg:text-2xl font-semibold mb-4 sm:mb-6 text-primary-50">
+            Explore
+          </h3>
+          <ul class="space-y-3 sm:space-y-4 text-secondary-200">
+            <li>
+              <a href="/"
+                class="hover:text-accent-brand transition-colors text-sm sm:text-base lg:text-lg block py-1">Home</a>
+            </li>
+            <li>
+              <a href="./product.html"
+                class="hover:text-accent-brand transition-colors text-sm sm:text-base lg:text-lg block py-1">Product</a>
+            </li>
+            <li>
+              <a href="./about.html"
+                class="hover:text-accent-brand transition-colors text-sm sm:text-base lg:text-lg block py-1">About
+                Us</a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Brand Section -->
+        <nav aria-labelledby="footer-brand" class="mt-4 sm:mt-0">
+          <h3 id="footer-brand" class="text-lg sm:text-xl lg:text-2xl font-semibold mb-4 sm:mb-6 text-primary-50">
+            Brand
+          </h3>
+          <ul class="space-y-3 sm:space-y-4 text-secondary-200">
+            <li>
+              <a href="./product.html"
+                class="hover:text-accent-brand transition-colors text-sm sm:text-base lg:text-lg block py-1">Nike</a>
+            </li>
+            <li>
+              <a href="./product.html"
+                class="hover:text-accent-brand transition-colors text-sm sm:text-base lg:text-lg block py-1">Louis
+                Vuitton</a>
+            </li>
+            <li>
+              <a href="./product.html"
+                class="hover:text-accent-brand transition-colors text-sm sm:text-base lg:text-lg block py-1">Gucci</a>
+            </li>
+            <li>
+              <a href="./product.html"
+                class="hover:text-accent-brand transition-colors text-sm sm:text-base lg:text-lg block py-1">Adidas</a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Information Section -->
+        <nav aria-labelledby="footer-info" class="mt-4 sm:mt-0">
+          <h3 id="footer-info" class="text-lg sm:text-xl lg:text-2xl font-semibold mb-4 sm:mb-6 text-primary-50">
+            Information
+          </h3>
+          <ul class="space-y-3 sm:space-y-4 text-secondary-200">
+            <li>
+              <a href="/"
+                class="hover:text-accent-brand transition-colors text-sm sm:text-base lg:text-lg block py-1">Feedback</a>
+            </li>
+            <li>
+              <a href="/"
+                class="hover:text-accent-brand transition-colors text-sm sm:text-base lg:text-lg block py-1">FAQ</a>
+            </li>
+            <li>
+              <a href="./about.html"
+                class="hover:text-accent-brand transition-colors text-sm sm:text-base lg:text-lg block py-1">Support</a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Logo Section -->
+        <aside class="flex flex-col items-center gap-4 sm:gap-5 mt-4 sm:mt-0">
+          <img src="../../asset/logo.png" alt="Product Icon"
+            class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 object-contain brightness-0 invert opacity-90"
+            loading="lazy" />
+          <p class="text-sm sm:text-base text-center leading-snug italic text-secondary-100 px-4 sm:px-0 max-w-xs">
+            Provide High Quality Products For Everyone
+          </p>
+        </aside>
+      </div>
+
+      <!-- Copyright Section -->
+      <div class="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-secondary-400/30 text-center">
+        <small class="text-sm sm:text-base text-secondary-300">
+          &copy; 2026 TinhMuy | All Rights Reserved
+        </small>
+      </div>
+    </div>
+  </footer>
+  <!-- Import JavaScript files -->
+  <script type="module" src="../JavaScript/Auth/profile.js"></script>
+  <script src="../JavaScript/dakrMode.js"></script>
+</body>
+
 </html>

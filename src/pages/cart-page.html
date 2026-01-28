@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cart page</title>
     <link rel="stylesheet" href="../output.css" />
-    <script src="../JavaScript/process_cart.js"></script>
-    <script src="../JavaScript/dakrMode.js"></script>
 
     <!-- meta data -->
     <meta property="og:title" content="Cart page" />
@@ -40,9 +38,13 @@
       }
     </style>
   </head>
-  <body class="bg-page-bg dark:bg-dark-page-bg min-h-screen transition-colors duration-300">
+  <body
+    class="bg-page-bg dark:bg-dark-page-bg min-h-screen transition-colors duration-300"
+  >
     <!-- Main Container -->
-    <main class="w-full bg-page-bg dark:bg-dark-page-bg py-9 px-4 sm:px-6 lg:px-8">
+    <main
+      class="w-full bg-page-bg dark:bg-dark-page-bg py-9 px-4 sm:px-6 lg:px-8"
+    >
       <!-- Header Section -->
       <header class="flex flex-col items-center justify-center w-full">
         <!-- Page Title -->
@@ -92,10 +94,20 @@
             >
               <!-- Desktop Table View -->
               <div class="hidden md:block overflow-x-auto">
-                <table class="w-full bg-white dark:bg-dark-nav-bg" aria-label="Shopping cart items">
+                <table
+                  class="w-full bg-white dark:bg-dark-nav-bg"
+                  aria-label="Shopping cart items"
+                >
                   <thead class="w-full bg-secondary-700 dark:bg-secondary-800">
-                    <tr class="text-center text-white text-sm font-medium uppercase">
-                      <th scope="col" class="text-left px-6 py-4 rounded-tl-2xl">PRODUCT</th>
+                    <tr
+                      class="text-center text-white text-sm font-medium uppercase"
+                    >
+                      <th
+                        scope="col"
+                        class="text-left px-6 py-4 rounded-tl-2xl"
+                      >
+                        PRODUCT
+                      </th>
                       <th scope="col" class="px-4 py-4">SIZE</th>
                       <th scope="col" class="px-4 py-4">PRICE</th>
                       <th scope="col" class="px-4 py-4">QUANTITY</th>
@@ -116,12 +128,21 @@
             </article>
 
             <!-- Order Summary Section -->
-            <aside class="w-full lg:w-96 bg-white dark:bg-dark-nav-bg rounded-2xl shadow-sm p-6">
-              <h2 class="mb-6 text-secondary-700 dark:text-secondary-100 text-xl font-medium">Order Summary</h2>
+            <aside
+              class="w-full lg:w-96 bg-white dark:bg-dark-nav-bg rounded-2xl shadow-sm p-6"
+            >
+              <h2
+                class="mb-6 text-secondary-700 dark:text-secondary-100 text-xl font-medium"
+              >
+                Order Summary
+              </h2>
 
               <div class="space-y-4">
                 <div class="flex justify-between items-center">
-                  <span class="text-secondary-700 dark:text-secondary-100 text-base font-normal">Items</span>
+                  <span
+                    class="text-secondary-700 dark:text-secondary-100 text-base font-normal"
+                    >Items</span
+                  >
                   <span
                     class="text-primary-900 dark:text-white text-base font-semibold"
                     id="total-items"
@@ -130,7 +151,10 @@
                 </div>
 
                 <div class="flex justify-between items-center">
-                  <span class="text-secondary-700 dark:text-secondary-100 text-base font-normal">Total:</span>
+                  <span
+                    class="text-secondary-700 dark:text-secondary-100 text-base font-normal"
+                    >Total:</span
+                  >
                   <span
                     class="text-primary-900 dark:text-white text-base font-semibold"
                     id="total-price"
@@ -141,14 +165,23 @@
                 <div
                   class="flex justify-between items-center pt-3 border-t border-primary-200 dark:border-secondary-800"
                 >
-                  <span class="text-secondary-700 dark:text-secondary-100 text-sm font-normal">Shipping:</span>
-                  <span class="text-primary-900 dark:text-white text-sm font-medium">Free</span>
+                  <span
+                    class="text-secondary-700 dark:text-secondary-100 text-sm font-normal"
+                    >Shipping:</span
+                  >
+                  <span
+                    class="text-primary-900 dark:text-white text-sm font-medium"
+                    >Free</span
+                  >
                 </div>
 
                 <div
                   class="flex justify-between items-center pb-3 border-b border-primary-200 dark:border-secondary-800"
                 >
-                  <span class="text-secondary-700 dark:text-secondary-100 text-sm font-normal">Subtotal:</span>
+                  <span
+                    class="text-secondary-700 dark:text-secondary-100 text-sm font-normal"
+                    >Subtotal:</span
+                  >
                   <span
                     class="text-primary-900 dark:text-white text-sm font-medium"
                     id="subtotal-price"
@@ -170,5 +203,8 @@
         </div>
       </section>
     </main>
+
+    <script src="../JavaScript/process_cart.js"></script>
+    <script src="../JavaScript/dakrMode.js"></script>
   </body>
 </html>
